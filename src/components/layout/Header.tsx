@@ -161,19 +161,19 @@ export default function Header() {
             {/* Logo */}
             <div className="flex-shrink-0 mr-8 flex items-center h-full">
               <Link href="/" className="flex flex-col items-start leading-none gap-0.5">
-                <span className="text-white font-extrabold text-[11px] tracking-widest ml-0.5 opacity-90">THE</span>
-                <span className="text-white font-extrabold text-2xl tracking-tight flex items-center">
-                  WELLNESS <span className="ml-1.5 text-[22px] font-normal tracking-normal text-pink-500">H</span>
-                  <span className="text-[22px] font-normal tracking-normal text-pink-600">O</span>
-                  <span className="text-[22px] font-normal tracking-normal text-purple-500">P</span>
-                  <span className="text-[22px] font-normal tracking-normal text-blue-500">P</span>
-                  <span className="text-[22px] font-normal tracking-normal text-cyan-400">Y</span>
+                <span className="text-white font-extrabold text-[8px] sm:text-[11px] tracking-widest ml-0.5 opacity-90">THE</span>
+                <span className="text-white font-extrabold text-lg sm:text-2xl tracking-tight flex items-center">
+                  WELLNESS <span className="ml-1.5 text-lg sm:text-[22px] font-normal tracking-normal text-pink-500">H</span>
+                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-pink-600">O</span>
+                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-purple-500">P</span>
+                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-blue-500">P</span>
+                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-cyan-400">Y</span>
                 </span>
               </Link>
             </div>
 
             {/* Middle Section (Nav + Search) */}
-            <div className="flex-1 flex items-stretch max-w-[900px] ml-4 h-full">
+            <div className="flex-1 flex items-stretch max-w-[900px] ml-2 sm:ml-4 h-full">
               
               {/* Categories & Brands Nav */}
               <nav className="hidden lg:flex mr-6 items-stretch h-full">
@@ -249,7 +249,7 @@ export default function Header() {
               </nav>
 
               {/* Search Bar */}
-              <div className="flex-1 relative group min-w-[300px] flex items-center h-full">
+              <div className="flex-1 relative group min-w-0 sm:min-w-[300px] flex items-center h-full hidden md:flex">
                 <form onSubmit={handleSearchSubmit} className="relative flex items-center w-full">
                   <div className="absolute left-3.5 text-gray-400">
                     <Search className="h-[18px] w-[18px]" strokeWidth={2} />
@@ -269,8 +269,8 @@ export default function Header() {
             </div>
 
             {/* Right Action Icons */}
-            <div className="flex items-center space-x-6 ml-8 h-full">
-              <button className="text-white hover:text-gray-300 transition-colors" aria-label="Notifications">
+            <div className="flex items-center space-x-3 sm:space-x-6 ml-2 sm:ml-8 h-full">
+              <button className="text-white hover:text-gray-300 transition-colors hidden sm:block" aria-label="Notifications">
                 <Bell className="h-[22px] w-[22px]" strokeWidth={1.5} />
               </button>
               
