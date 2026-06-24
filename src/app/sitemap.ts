@@ -32,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
     const categories = await api.getCategories();
-    const catRoutes = categories.map((cat) => ({
+    const catRoutes = categories.map((cat: any) => ({
       url: `${baseUrl}/shop/category/${cat.slug}`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'weekly' as const,
@@ -40,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
     const articles = await api.getBlogArticles();
-    const blogRoutes = articles.map((art) => ({
+    const blogRoutes = articles.map((art: any) => ({
       url: `${baseUrl}/blog/${art.slug}`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'weekly' as const,

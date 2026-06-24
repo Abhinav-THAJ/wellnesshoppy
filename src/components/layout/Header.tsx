@@ -284,15 +284,13 @@ export default function Header() {
               </Link>
 
               <Sheet>
-                <SheetTrigger asChild>
-                  <button className="text-white hover:text-gray-300 transition-colors relative" aria-label="Cart">
-                    <ShoppingBag className="h-[22px] w-[22px]" strokeWidth={1.5} />
-                    {cartCount > 0 && (
-                      <span className="absolute -top-1.5 -right-2 bg-white text-black text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
-                        {cartCount}
-                      </span>
-                    )}
-                  </button>
+                <SheetTrigger render={<button className="text-white hover:text-gray-300 transition-colors relative" aria-label="Cart" />}>
+                  <ShoppingBag className="h-[22px] w-[22px]" strokeWidth={1.5} />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1.5 -right-2 bg-white text-black text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
+                      {cartCount}
+                    </span>
+                  )}
                 </SheetTrigger>
                 <SheetContent className="w-full sm:max-w-md bg-white border-l border-gray-100 flex flex-col p-6 rounded-l-2xl text-black z-50">
                   <SheetHeader className="pb-4 border-b border-gray-100">
@@ -306,9 +304,9 @@ export default function Header() {
                     {cart.length === 0 ? (
                       <div className="h-full flex flex-col items-center justify-center text-center p-6 text-black">
                         <h3 className="font-bold mb-1">Your cart is empty</h3>
-                        <SheetClose asChild>
+                        <SheetClose render={<Link href="/shop" />}>
                           <Button asChild className="mt-4 bg-black text-white px-6 rounded-full">
-                            <Link href="/shop">Start Shopping</Link>
+                            <span>Start Shopping</span>
                           </Button>
                         </SheetClose>
                       </div>
@@ -356,14 +354,14 @@ export default function Header() {
                         <span className="text-lg font-bold text-gray-900">${cartTotal}</span>
                       </div>
                       <div className="grid grid-cols-2 gap-3">
-                        <SheetClose asChild>
+                        <SheetClose render={<Link href="/cart" />}>
                           <Button asChild variant="outline" className="rounded-full py-5 border-gray-200 text-black">
-                            <Link href="/cart">View Cart</Link>
+                            <span>View Cart</span>
                           </Button>
                         </SheetClose>
-                        <SheetClose asChild>
+                        <SheetClose render={<Link href="/checkout" />}>
                           <Button asChild className="rounded-full bg-black text-white py-5 hover:bg-gray-800">
-                            <Link href="/checkout">Checkout</Link>
+                            <span>Checkout</span>
                           </Button>
                         </SheetClose>
                       </div>
@@ -374,10 +372,8 @@ export default function Header() {
 
               {/* Mobile Menu Slide */}
               <Sheet>
-                <SheetTrigger asChild>
-                  <button className="p-2 lg:hidden text-white ml-2" aria-label="Menu">
-                    <Menu className="h-6 w-6" />
-                  </button>
+                <SheetTrigger render={<button className="p-2 lg:hidden text-white ml-2" aria-label="Menu" />}>
+                  <Menu className="h-6 w-6" />
                 </SheetTrigger>
                 <SheetContent side="left" className="w-full sm:max-w-xs bg-white text-black p-6 z-50">
                   <SheetHeader className="pb-4 border-b border-gray-100">

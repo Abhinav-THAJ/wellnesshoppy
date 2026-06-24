@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import ProductCard from '@/components/product/ProductCard';
 
-export default function DashboardPage() {
+function DashboardContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [mounted, setMounted] = useState(false);
@@ -398,5 +398,13 @@ export default function DashboardPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <React.Suspense fallback={<div className="pt-32 pb-20 max-w-7xl mx-auto px-4 animate-pulse"><div className="h-64 bg-gray-100 rounded-3xl" /></div>}>
+      <DashboardContent />
+    </React.Suspense>
   );
 }
