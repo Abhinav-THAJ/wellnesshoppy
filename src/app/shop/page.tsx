@@ -126,10 +126,8 @@ export default function ShopPage() {
           <div className="flex items-center space-x-2">
             <span className="font-body text-xs text-gray-400 hidden sm:inline">Sort by:</span>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="flex items-center font-body text-xs font-bold text-gray-900 hover:opacity-75 uppercase tracking-wider border border-gray-100 px-4 py-2 rounded-full">
-                  {getSortLabel()} <ChevronDown className="ml-1 h-3.5 w-3.5" />
-                </button>
+              <DropdownMenuTrigger className="flex items-center font-body text-xs font-bold text-gray-900 hover:opacity-75 uppercase tracking-wider border border-gray-100 px-4 py-2 rounded-full outline-none">
+                {getSortLabel()} <ChevronDown className="ml-1 h-3.5 w-3.5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48 bg-white border border-gray-100 shadow-lg rounded-xl">
                 <DropdownMenuItem onClick={() => setSortBy('date-desc')} className="text-xs font-body cursor-pointer">Newest Arrivals</DropdownMenuItem>
