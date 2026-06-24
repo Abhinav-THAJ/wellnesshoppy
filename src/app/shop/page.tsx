@@ -199,7 +199,7 @@ export default function ShopPage() {
                 max={3000}
                 step={50}
                 value={priceRange}
-                onValueChange={(val) => setPriceRange(val)}
+                onValueChange={(val) => setPriceRange(val as number[])}
                 className="w-full"
               />
             </div>
