@@ -159,7 +159,7 @@ export default function Header() {
           <div className="flex items-center justify-between w-full h-full">
             
             {/* Logo */}
-            <div className="flex-shrink-0 mr-8 flex items-center h-full">
+            <div className="flex-shrink-0 mr-2 sm:mr-4 lg:mr-8 flex items-center h-full">
               <Link href="/" className="flex flex-col items-start leading-none gap-0.5">
                 <span className="text-white font-extrabold text-[8px] sm:text-[11px] tracking-widest ml-0.5 opacity-90">THE</span>
                 <span className="text-white font-extrabold text-lg sm:text-2xl tracking-tight flex items-center">
@@ -249,7 +249,7 @@ export default function Header() {
               </nav>
 
               {/* Search Bar */}
-              <div className="flex-1 relative group min-w-0 sm:min-w-[300px] flex items-center h-full hidden md:flex">
+              <div className="flex-1 relative group min-w-0 sm:min-w-[300px] hidden md:flex items-center h-full">
                 <form onSubmit={handleSearchSubmit} className="relative flex items-center w-full">
                   <div className="absolute left-3.5 text-gray-400">
                     <Search className="h-[18px] w-[18px]" strokeWidth={2} />
