@@ -247,7 +247,7 @@ export default function ShopPage() {
           {/* Right Column: Products Grid */}
           <div className="flex-grow">
             {loading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                 {[1, 2, 3, 4, 5, 6].map(n => (
                   <div key={n} className="bg-white border rounded-2xl h-80 animate-pulse p-4" />
                 ))}
@@ -270,7 +270,7 @@ export default function ShopPage() {
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                   {products.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}

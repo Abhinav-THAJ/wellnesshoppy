@@ -558,7 +558,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
         {relatedProducts.length > 0 && (
           <div className="border-t border-gray-50 pt-16 mb-20">
             <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight mb-8">Related Masterpieces</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {relatedProducts.map((p) => (
                 <SingleProductCard key={p.id} product={p} />
               ))}

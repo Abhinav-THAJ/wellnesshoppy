@@ -46,7 +46,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
 
         {/* Results */}
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {[1, 2, 3, 4].map(n => (
               <div key={n} className="bg-white border rounded-2xl h-80 animate-pulse p-4" />
             ))}
@@ -67,7 +67,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
         ) : (
           <div className="flex flex-wrap gap-6 justify-center">
             {products.map((product) => (
-              <div key={product.id} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex-shrink-0">
+              <div key={product.id} className="w-[calc(50%-6px)] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex-shrink-0">
                 <ProductCard product={product} />
               </div>
             ))}

@@ -61,7 +61,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
 
         {/* Dynamic List */}
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {[1, 2, 3, 4].map(n => (
               <div key={n} className="bg-white border rounded-2xl h-80 animate-pulse p-4" />
             ))}
@@ -80,7 +80,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             </Button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

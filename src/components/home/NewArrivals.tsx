@@ -35,9 +35,9 @@ export default function NewArrivals() {
         </div>
 
         {/* Grid */}
-        <div className="flex flex-wrap gap-6 justify-center">
+        <div className="flex flex-wrap gap-3 sm:gap-6 justify-center">
           {products.map((product) => (
-            <div key={product.id} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex-shrink-0">
+            <div key={product.id} className="w-[calc(50%-6px)] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex-shrink-0">
               <ProductCard product={product} />
             </div>
           ))}

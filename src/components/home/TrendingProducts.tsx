@@ -55,8 +55,8 @@ export default function TrendingProducts() {
         {/* Swiper Carousel */}
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
-          spaceBetween={24}
-          slidesPerView={1}
+          spaceBetween={12}
+          slidesPerView={2}
           navigation={{
             prevEl: '.swiper-button-prev-trending',
             nextEl: '.swiper-button-next-trending',
@@ -64,8 +64,8 @@ export default function TrendingProducts() {
           pagination={{ clickable: true, el: '.swiper-pagination-trending' }}
           autoplay={{ delay: 6000, disableOnInteraction: false }}
           breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 4 },
+            640: { slidesPerView: 2, spaceBetween: 24 },
+            1024: { slidesPerView: 4, spaceBetween: 24 },
           }}
           className="!pb-14"
         >

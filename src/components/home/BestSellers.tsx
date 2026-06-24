@@ -56,8 +56,8 @@ export default function BestSellers() {
         {/* Swiper Carousel */}
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
-          spaceBetween={24}
-          slidesPerView={1}
+          spaceBetween={12}
+          slidesPerView={2}
           navigation={{
             prevEl: '.swiper-button-prev-bestseller',
             nextEl: '.swiper-button-next-bestseller',
@@ -65,8 +65,8 @@ export default function BestSellers() {
           pagination={{ clickable: true, el: '.swiper-pagination-bestseller' }}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 4 },
+            640: { slidesPerView: 2, spaceBetween: 24 },
+            1024: { slidesPerView: 4, spaceBetween: 24 },
           }}
           className="!pb-14"
         >

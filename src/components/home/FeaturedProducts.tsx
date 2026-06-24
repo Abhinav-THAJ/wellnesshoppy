@@ -25,7 +25,7 @@ export default function FeaturedProducts() {
       <section className="py-24 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-8 w-48 bg-gray-100 animate-pulse rounded mb-8" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {[1, 2, 3, 4].map(n => (
               <div key={n} className="bg-white rounded-2xl h-80 animate-pulse border border-gray-100 p-4" />
             ))}
@@ -59,7 +59,7 @@ export default function FeaturedProducts() {
         </div>
 
         {/* Products Grid */}
-        <div className="flex flex-wrap gap-6 justify-center">
+        <div className="flex flex-wrap gap-3 sm:gap-6 justify-center">
           {products.map((product, idx) => (
             <motion.div
               key={product.id}
@@ -67,7 +67,7 @@ export default function FeaturedProducts() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex-shrink-0"
+              className="w-[calc(50%-6px)] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex-shrink-0"
             >
               <ProductCard product={product} />
             </motion.div>
