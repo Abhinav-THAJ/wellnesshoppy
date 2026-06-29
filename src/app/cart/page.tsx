@@ -28,10 +28,10 @@ export default function CartPage() {
   if (!mounted) {
     return (
       <div className="pt-32 pb-20 max-w-7xl mx-auto px-4 animate-pulse">
-        <div className="h-8 w-48 bg-gray-100 rounded mb-8" />
+        <div className="h-8 w-48 bg-muted rounded mb-8" />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          <div className="lg:col-span-2 h-96 bg-gray-100 rounded-3xl" />
-          <div className="h-64 bg-gray-100 rounded-3xl" />
+          <div className="lg:col-span-2 h-96 bg-muted rounded-3xl" />
+          <div className="h-64 bg-muted rounded-3xl" />
         </div>
       </div>
     );
@@ -60,20 +60,20 @@ export default function CartPage() {
         
         {/* Page Title */}
         <div className="mb-10">
-          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">Shopping Cart</h1>
-          <p className="font-body text-xs sm:text-sm text-gray-500 font-light mt-1">Review your selections before proceeding to the checkout lobby.</p>
+          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-primary tracking-tight">Shopping Cart</h1>
+          <p className="font-body text-xs sm:text-sm text-muted-foreground font-light mt-1">Review your selections before proceeding to the checkout lobby.</p>
         </div>
 
         {cart.length === 0 ? (
-          <div className="text-center py-24 bg-gray-50/50 rounded-3xl p-8 border border-gray-50 max-w-lg mx-auto">
+          <div className="text-center py-24 bg-background/50 rounded-3xl p-8 border border-gray-50 max-w-lg mx-auto">
             <div className="w-28 h-28 mx-auto mb-4">
               <img src="/images/illustrations/empty.png" alt="Empty Cart" className="object-contain w-full h-full animate-pulse" />
             </div>
-            <h3 className="font-heading text-lg font-bold text-gray-900">Your bag is empty</h3>
+            <h3 className="font-heading text-lg font-bold text-primary">Your bag is empty</h3>
             <p className="font-body text-xs text-gray-400 font-light mt-1">
               Add premium design pieces to your cart to begin your tailored checkout experience.
             </p>
-            <Button asChild className="bg-[#111827] text-white hover:bg-gray-800 rounded-full font-body text-xs uppercase tracking-wider px-8 py-5 mt-6 h-auto">
+            <Button asChild className="bg-primary text-white hover:bg-primary rounded-full font-body text-xs uppercase tracking-wider px-8 py-5 mt-6 h-auto">
               <Link href="/shop">Explore Catalog</Link>
             </Button>
           </div>
@@ -85,7 +85,7 @@ export default function CartPage() {
               <div className="border border-gray-100 rounded-3xl overflow-hidden shadow-sm">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="bg-gray-50 border-b border-gray-100 font-heading text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                    <tr className="bg-background border-b border-gray-100 font-heading text-[10px] font-bold uppercase tracking-widest text-gray-400">
                       <th className="px-6 py-4">Product Detail</th>
                       <th className="px-6 py-4 text-center">Quantity</th>
                       <th className="px-6 py-4 text-right">Subtotal</th>
@@ -94,14 +94,14 @@ export default function CartPage() {
                   </thead>
                   <tbody className="divide-y divide-gray-50">
                     {cart.map((item) => (
-                      <tr key={item.id} className="font-body text-xs sm:text-sm text-gray-900">
+                      <tr key={item.id} className="font-body text-xs sm:text-sm text-primary">
                         {/* Info details */}
                         <td className="px-6 py-6 flex space-x-4 items-center">
-                          <div className="w-16 h-20 bg-gray-50 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100 relative">
+                          <div className="w-16 h-20 bg-background rounded-xl overflow-hidden flex-shrink-0 border border-gray-100 relative">
                             <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="font-heading text-xs font-bold text-gray-900 truncate hover:text-[#2563EB] transition-colors">
+                            <h4 className="font-heading text-xs font-bold text-primary truncate hover:text-secondary transition-colors">
                               <Link href={`/product/${item.slug}`}>{item.name}</Link>
                             </h4>
                             {item.selectedAttributes && (
@@ -115,17 +115,17 @@ export default function CartPage() {
 
                         {/* Quantity */}
                         <td className="px-6 py-6 text-center">
-                          <div className="inline-flex items-center border border-gray-100 rounded-full py-1.5 px-3 bg-gray-50 justify-between">
+                          <div className="inline-flex items-center border border-gray-100 rounded-full py-1.5 px-3 bg-background justify-between">
                             <button 
                               onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                              className="p-1 text-gray-400 hover:text-gray-900"
+                              className="p-1 text-gray-400 hover:text-primary"
                             >
                               <Minus className="h-3.5 w-3.5" />
                             </button>
                             <span className="font-body text-xs font-bold px-3">{item.quantity}</span>
                             <button 
                               onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                              className="p-1 text-gray-400 hover:text-gray-900"
+                              className="p-1 text-gray-400 hover:text-primary"
                             >
                               <Plus className="h-3.5 w-3.5" />
                             </button>
@@ -133,7 +133,7 @@ export default function CartPage() {
                         </td>
 
                         {/* Subtotal */}
-                        <td className="px-6 py-6 text-right font-bold text-gray-900">
+                        <td className="px-6 py-6 text-right font-bold text-primary">
                           ${item.price * item.quantity}
                         </td>
 
@@ -153,7 +153,7 @@ export default function CartPage() {
               </div>
 
               {/* Coupon input */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-between items-start bg-gray-50/50 p-6 rounded-3xl border border-gray-50">
+              <div className="flex flex-col sm:flex-row gap-4 justify-between items-start bg-background/50 p-6 rounded-3xl border border-gray-50">
                 <form onSubmit={handleApplyCoupon} className="flex gap-2 max-w-sm w-full">
                   <Input 
                     type="text" 
@@ -167,7 +167,7 @@ export default function CartPage() {
                   />
                   <Button 
                     type="submit"
-                    className="rounded-full bg-[#111827] text-white hover:bg-gray-800 font-body text-xs uppercase tracking-wider px-6"
+                    className="rounded-full bg-primary text-white hover:bg-primary font-body text-xs uppercase tracking-wider px-6"
                   >
                     <Ticket className="h-4 w-4 mr-2" /> Apply
                   </Button>
@@ -191,13 +191,13 @@ export default function CartPage() {
             </div>
 
             {/* Cart Summary */}
-            <div className="bg-gray-50 border border-gray-100 rounded-3xl p-6 sm:p-8 space-y-6">
-              <h3 className="font-heading text-lg font-bold text-gray-900">Order Summary</h3>
+            <div className="bg-background border border-gray-100 rounded-3xl p-6 sm:p-8 space-y-6">
+              <h3 className="font-heading text-lg font-bold text-primary">Order Summary</h3>
               
-              <div className="space-y-3 font-body text-xs sm:text-sm text-gray-500">
+              <div className="space-y-3 font-body text-xs sm:text-sm text-muted-foreground">
                 <div className="flex justify-between">
                   <span>Bag Subtotal</span>
-                  <span className="font-bold text-gray-900">${subtotal}</span>
+                  <span className="font-bold text-primary">${subtotal}</span>
                 </div>
                 {couponDiscount > 0 && (
                   <div className="flex justify-between text-[#10B981] font-semibold">
@@ -210,10 +210,10 @@ export default function CartPage() {
                   {shippingCost === 0 ? (
                     <span className="text-[#10B981] font-semibold">Complimentary</span>
                   ) : (
-                    <span className="font-bold text-gray-900">${shippingCost}</span>
+                    <span className="font-bold text-primary">${shippingCost}</span>
                   )}
                 </div>
-                <div className="flex justify-between text-base sm:text-lg font-heading font-bold text-gray-900 pt-3">
+                <div className="flex justify-between text-base sm:text-lg font-heading font-bold text-primary pt-3">
                   <span>Grand Total</span>
                   <span>${total}</span>
                 </div>
@@ -221,14 +221,14 @@ export default function CartPage() {
 
               {/* Free shipping milestone indicator */}
               {subtotal < 500 && (
-                <div className="bg-[#2563EB]/5 border border-[#2563EB]/10 rounded-2xl p-4 text-xs font-body text-[#2563EB] leading-relaxed">
+                <div className="bg-secondary/5 border border-secondary/10 rounded-2xl p-4 text-xs font-body text-secondary leading-relaxed">
                   Add <span className="font-bold">${500 - subtotal}</span> more to unlock free white-glove shipping.
                 </div>
               )}
 
               {/* Checkout CTA */}
               <div className="space-y-3">
-                <Button asChild className="w-full rounded-full py-6 font-body text-xs sm:text-sm uppercase tracking-wider font-bold bg-[#111827] text-white hover:bg-gray-800 h-auto">
+                <Button asChild className="w-full rounded-full py-6 font-body text-xs sm:text-sm uppercase tracking-wider font-bold bg-primary text-white hover:bg-primary h-auto">
                   <Link href="/checkout">
                     Secure Checkout <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>

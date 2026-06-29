@@ -43,9 +43,9 @@ export default function ProductCard({ product }: ProductCardProps) {
   if (!mounted) {
     return (
       <div className="bg-white rounded-2xl border border-gray-100 p-4 animate-pulse">
-        <div className="bg-gray-100 aspect-square rounded-xl mb-4" />
-        <div className="h-4 w-3/4 bg-gray-100 rounded mb-2" />
-        <div className="h-3 w-1/2 bg-gray-100 rounded" />
+        <div className="bg-muted aspect-square rounded-xl mb-4" />
+        <div className="h-4 w-3/4 bg-muted rounded mb-2" />
+        <div className="h-3 w-1/2 bg-muted rounded" />
       </div>
     );
   }
@@ -87,7 +87,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="group relative bg-white border border-gray-50 hover:border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between h-full">
         <div>
           {/* Image Container */}
-          <div className="relative aspect-[4/5] bg-gray-50 rounded-xl overflow-hidden mb-4">
+          <div className="relative aspect-[4/5] bg-background rounded-xl overflow-hidden mb-4">
             <Link href={`/product/${product.slug}`} className="block h-full w-full">
               <img 
                 src={product.images[0]} 
@@ -104,7 +104,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 </span>
               )}
               {product.newArrival && (
-                <span className="bg-[#2563EB] text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-sm">
+                <span className="bg-secondary text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-sm">
                   New
                 </span>
               )}
@@ -114,7 +114,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <button 
               onClick={() => toggleWishlist(product)}
               className={`absolute top-3 right-3 p-2 bg-white rounded-full shadow-md z-10 transition-colors ${
-                isFavorite ? 'text-red-500 hover:bg-red-50' : 'text-gray-400 hover:text-gray-900 hover:bg-gray-100'
+                isFavorite ? 'text-red-500 hover:bg-red-50' : 'text-gray-400 hover:text-primary hover:bg-muted'
               }`}
               aria-label="Add to Wishlist"
             >
@@ -125,7 +125,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div className="absolute inset-x-0 bottom-4 flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 px-4">
               <Button 
                 onClick={() => setQuickViewOpen(true)}
-                className="bg-white/95 backdrop-blur-sm text-gray-900 hover:bg-white rounded-full p-3 shadow-md flex-1 text-xs uppercase tracking-wider font-body font-semibold h-10 border border-gray-100"
+                className="bg-white/95 backdrop-blur-sm text-primary hover:bg-white rounded-full p-3 shadow-md flex-1 text-xs uppercase tracking-wider font-body font-semibold h-10 border border-gray-100"
               >
                 <Eye className="h-4 w-4 mr-2" /> Quick View
               </Button>
@@ -137,7 +137,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
               {product.category}
             </span>
-            <h3 className="font-heading text-xs sm:text-sm font-bold text-gray-900 hover:text-[#2563EB] transition-colors truncate">
+            <h3 className="font-heading text-xs sm:text-sm font-bold text-primary hover:text-secondary transition-colors truncate">
               <Link href={`/product/${product.slug}`}>{product.name}</Link>
             </h3>
             
@@ -145,7 +145,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             {product.rating > 0 && (
               <div className="flex items-center space-x-1 py-0.5">
                 <Star className="h-3 w-3 text-[#F59E0B] fill-current" />
-                <span className="text-[10px] text-gray-500 font-body font-bold">{product.rating}</span>
+                <span className="text-[10px] text-muted-foreground font-body font-bold">{product.rating}</span>
                 <span className="text-[10px] text-gray-300 font-body">({product.reviewCount})</span>
               </div>
             )}
@@ -155,7 +155,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Bottom pricing and add to cart */}
         <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-50">
           <div className="flex items-baseline space-x-1.5">
-            <span className="font-body text-sm font-bold text-gray-900">${product.price}</span>
+            <span className="font-body text-sm font-bold text-primary">${product.price}</span>
             {product.regularPrice && product.regularPrice > product.price && (
               <span className="font-body text-[11px] text-gray-400 line-through">${product.regularPrice}</span>
             )}
@@ -166,7 +166,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             className={`p-2 rounded-full border transition-all ${
               added 
                 ? 'bg-[#10B981] border-[#10B981] text-white' 
-                : 'bg-white border-gray-100 hover:bg-[#111827] hover:border-[#111827] text-gray-900 hover:text-white'
+                : 'bg-white border-gray-100 hover:bg-primary hover:border-primary text-primary hover:text-white'
             }`}
             aria-label="Add to Cart"
           >
@@ -180,7 +180,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <DialogContent className="max-w-3xl w-[95%] bg-white rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-6 border-none shadow-2xl overflow-y-auto max-h-[90vh]">
           {/* Left Gallery */}
           <div className="flex-1 max-w-sm mx-auto w-full">
-            <div className="aspect-[4/5] bg-gray-50 rounded-2xl overflow-hidden relative shadow-inner">
+            <div className="aspect-[4/5] bg-background rounded-2xl overflow-hidden relative shadow-inner">
               <img 
                 src={product.images[0]} 
                 alt={product.name} 
@@ -196,7 +196,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase">
                   {product.category}
                 </span>
-                <DialogTitle className="font-heading text-lg sm:text-2xl font-extrabold text-gray-900 leading-tight">
+                <DialogTitle className="font-heading text-lg sm:text-2xl font-extrabold text-primary leading-tight">
                   {product.name}
                 </DialogTitle>
               </DialogHeader>
@@ -204,13 +204,13 @@ export default function ProductCard({ product }: ProductCardProps) {
               {/* Pricing & Rating */}
               <div className="flex items-center justify-between">
                 <div className="flex items-baseline space-x-2">
-                  <span className="font-body text-xl font-bold text-gray-900">${product.price}</span>
+                  <span className="font-body text-xl font-bold text-primary">${product.price}</span>
                   {product.regularPrice && product.regularPrice > product.price && (
                     <span className="font-body text-xs text-gray-400 line-through">${product.regularPrice}</span>
                   )}
                 </div>
                 {product.rating > 0 && (
-                  <div className="flex items-center space-x-1 bg-gray-50 px-2 py-1 rounded-lg">
+                  <div className="flex items-center space-x-1 bg-background px-2 py-1 rounded-lg">
                     <Star className="h-3.5 w-3.5 text-[#F59E0B] fill-current" />
                     <span className="text-xs font-bold text-gray-700">{product.rating}</span>
                   </div>
@@ -218,7 +218,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               </div>
 
               {/* Short Description */}
-              <p className="font-body text-xs text-gray-500 leading-relaxed font-light">
+              <p className="font-body text-xs text-muted-foreground leading-relaxed font-light">
                 {product.shortDescription}
               </p>
 
@@ -235,7 +235,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                         onClick={() => setSelectedAttrs(prev => ({ ...prev, [attr.name]: opt }))}
                         className={`px-3 py-1.5 rounded-full text-xs font-body border transition-all ${
                           selectedAttrs[attr.name] === opt
-                            ? 'bg-[#111827] border-[#111827] text-white'
+                            ? 'bg-primary border-primary text-white'
                             : 'bg-white border-gray-100 hover:border-gray-300 text-gray-700'
                         }`}
                       >
@@ -251,17 +251,17 @@ export default function ProductCard({ product }: ProductCardProps) {
                 <span className="font-heading text-[10px] font-bold uppercase tracking-wider text-gray-400">
                   Quantity
                 </span>
-                <div className="flex items-center border border-gray-100 rounded-full py-1.5 px-3 bg-gray-50 w-28 justify-between">
+                <div className="flex items-center border border-gray-100 rounded-full py-1.5 px-3 bg-background w-28 justify-between">
                   <button 
                     onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
-                    className="p-1 text-gray-400 hover:text-gray-900"
+                    className="p-1 text-gray-400 hover:text-primary"
                   >
                     <Minus className="h-4 w-4" />
                   </button>
                   <span className="font-body text-xs font-bold">{quantity}</span>
                   <button 
                     onClick={() => setQuantity(prev => prev + 1)}
-                    className="p-1 text-gray-400 hover:text-gray-900"
+                    className="p-1 text-gray-400 hover:text-primary"
                   >
                     <Plus className="h-4 w-4" />
                   </button>
@@ -275,7 +275,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 onClick={handleAddToCart}
                 disabled={added}
                 className={`rounded-full py-6 font-body text-xs sm:text-sm uppercase tracking-wider ${
-                  added ? 'bg-[#10B981]' : 'bg-[#111827] hover:bg-gray-800 text-white'
+                  added ? 'bg-[#10B981]' : 'bg-primary hover:bg-primary text-white'
                 }`}
               >
                 {added ? 'Added to Cart' : 'Add to Cart'}

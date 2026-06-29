@@ -8,48 +8,48 @@ import { motion } from 'framer-motion';
 const featuredReviews = [
   {
     id: 1,
-    author: "Marcus Vance",
-    role: "Acoustic Enthusiast",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop",
+    author: "Meera K.",
+    role: "Mother of Two",
+    avatar: "/images/kerala_herbs.png",
     rating: 5,
-    title: "Absolute sonic perfection",
-    content: "The sound signature is completely on another level. Very precise, fast transients, and the luxury finish is superb.",
-    product: "AeroSound Pro Max ANC Headphones"
+    title: "Amazing Hair Growth",
+    content: "I started using PULARI herbal oil after my pregnancy hair fall. Within a month, I can see baby hairs growing. The smell is incredibly natural.",
+    product: "PULARI Herbal Hair Growth Oil"
   },
   {
     id: 2,
-    author: "Eleanor Sterling",
-    role: "Design Critic",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop",
+    author: "Lakshmi S.",
+    role: "Wellness Enthusiast",
+    avatar: "/images/kerala_handloom.png",
     rating: 5,
-    title: "Sleek and comfortable",
-    content: "It feels like a high-end luxury accessory. The leather padding does not pressure my ears at all, and it fits comfortably for long-distance travel.",
-    product: "AeroSound Pro Max ANC Headphones"
+    title: "Purest Oil I've Found",
+    content: "The Urukku Velichenna is exactly like what my grandmother used to make. It's the only thing I trust for my baby's delicate skin.",
+    product: "Home Made Urukku Velichenna"
   },
   {
     id: 3,
-    author: "Sofia Loren",
-    role: "Atelier Client",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop",
+    author: "Rajiv V.",
+    role: "Ayurveda Practitioner",
+    avatar: "/images/kerala_spices.png",
     rating: 5,
-    title: "Magnificent drape and texture",
-    content: "This coat is absolutely flawless. The wool-cashmere blend feels like butter, and the camel sand color is deep and rich.",
-    product: "Atelier Minimal Cashmere Trench Coat"
+    title: "Authentic Aroma",
+    content: "The Cow Ghee has a fantastic aroma that reminds me of traditional Bilona churning. We use it daily for cooking and health.",
+    product: "Pure Cow Ghee"
   }
 ];
 
 export default function Reviews() {
   return (
-    <section className="py-24 bg-gray-50/50">
+    <section className="py-24 bg-background/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="mb-16 text-center max-w-xl mx-auto">
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
-            Voices of the Atelier
+          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight mb-3">
+            Customer Testimonials
           </h2>
-          <p className="font-body text-xs sm:text-sm text-gray-500 font-light">
-            Read real feedback from our global community of designers, musicians, and collectors.
+          <p className="font-body text-xs sm:text-sm text-muted-foreground font-light">
+            Read real feedback from our happy families and wellness community.
           </p>
         </div>
 
@@ -80,10 +80,10 @@ export default function Reviews() {
 
                 {/* Content */}
                 <div className="space-y-1.5">
-                  <h3 className="font-heading text-sm font-bold text-gray-900">
+                  <h3 className="font-heading text-sm font-bold text-primary">
                     &ldquo;{rev.title}&rdquo;
                   </h3>
-                  <p className="font-body text-xs text-gray-500 font-light leading-relaxed">
+                  <p className="font-body text-xs text-muted-foreground font-light leading-relaxed">
                     {rev.content}
                   </p>
                 </div>
@@ -91,11 +91,11 @@ export default function Reviews() {
 
               {/* Author Info */}
               <div className="flex items-center space-x-3.5 mt-8 pt-6 border-t border-gray-50">
-                <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-gray-100">
+                <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-muted">
                   <img src={rev.avatar} alt={rev.author} className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <h4 className="font-heading text-xs font-bold text-gray-900">{rev.author}</h4>
+                  <h4 className="font-heading text-xs font-bold text-primary">{rev.author}</h4>
                   <p className="font-body text-[10px] text-gray-400 font-medium mt-0.5">
                     {rev.role} • <span className="text-gray-300 font-normal">{rev.product}</span>
                   </p>

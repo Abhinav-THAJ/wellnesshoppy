@@ -26,7 +26,7 @@ export default function ForgotPasswordPage() {
         
         {/* Navigation */}
         <div className="text-left">
-          <Link href="/auth/login" className="inline-flex items-center text-xs font-body uppercase font-bold tracking-wider text-gray-400 hover:text-gray-900 transition-colors">
+          <Link href="/auth/login" className="inline-flex items-center text-xs font-body uppercase font-bold tracking-wider text-gray-400 hover:text-primary transition-colors">
             <ArrowLeft className="h-4 w-4 mr-2" /> Back to Sign In
           </Link>
         </div>
@@ -36,19 +36,19 @@ export default function ForgotPasswordPage() {
             <div className="w-12 h-12 bg-[#10B981]/10 rounded-full flex items-center justify-center text-[#10B981] mx-auto">
               <Check className="h-6 w-6" />
             </div>
-            <h2 className="font-heading text-2xl font-extrabold text-gray-900 tracking-tight">Email Dispatched</h2>
-            <p className="font-body text-xs text-gray-500 font-light max-w-xs mx-auto">
-              Instructions to reset your credentials have been sent to <span className="font-bold text-gray-900">{email}</span>.
+            <h2 className="font-heading text-2xl font-extrabold text-primary tracking-tight">Email Dispatched</h2>
+            <p className="font-body text-xs text-muted-foreground font-light max-w-xs mx-auto">
+              Instructions to reset your credentials have been sent to <span className="font-bold text-primary">{email}</span>.
             </p>
-            <Button asChild className="rounded-full bg-[#111827] text-white hover:bg-gray-800 w-full font-body text-xs uppercase tracking-wider py-5 h-auto">
+            <Button asChild className="rounded-full bg-primary text-white hover:bg-primary w-full font-body text-xs uppercase tracking-wider py-5 h-auto">
               <Link href="/auth/login">Return to Sign In</Link>
             </Button>
           </div>
         ) : (
           <div className="space-y-6">
             <div className="space-y-2">
-              <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Credentials Recovery</h1>
-              <p className="font-body text-xs text-gray-500 font-light max-w-xs mx-auto">
+              <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight">Credentials Recovery</h1>
+              <p className="font-body text-xs text-muted-foreground font-light max-w-xs mx-auto">
                 Enter your registered email address and we will dispatch code-recovery coordinates.
               </p>
             </div>
@@ -69,7 +69,7 @@ export default function ForgotPasswordPage() {
               <Button 
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full rounded-full py-6 font-body text-xs uppercase tracking-wider font-bold bg-[#111827] text-white hover:bg-gray-800 h-auto"
+                className="w-full rounded-full py-6 font-body text-xs uppercase tracking-wider font-bold bg-primary text-white hover:bg-primary h-auto"
               >
                 {status === 'loading' ? 'Dispatching Instructions...' : (
                   <span className="flex items-center justify-center">Send Recovery Code <Send className="ml-2 h-4 w-4" /></span>

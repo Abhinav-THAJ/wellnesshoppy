@@ -31,17 +31,17 @@ export default function NewsletterSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gray-50 rounded-3xl p-8 sm:p-16 border border-gray-100 flex flex-col items-center gap-6"
+          className="bg-background rounded-3xl p-8 sm:p-16 border border-gray-100 flex flex-col items-center gap-6"
         >
           <div className="space-y-2 max-w-lg">
-            <span className="font-heading text-xs font-bold tracking-[0.2em] text-[#2563EB] uppercase">
-              Join the Inner Circle
+            <span className="font-heading text-xs font-bold tracking-[0.2em] text-secondary uppercase">
+              Join Our Wellness Family
             </span>
-            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
-              Unlock Private Atelier Updates
+            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight">
+              Receive Updates on Pure Kerala Traditions
             </h2>
-            <p className="font-body text-xs sm:text-sm text-gray-500 font-light leading-relaxed">
-              Subscribers receive early access to dynamic product drops, seasonal catalog releases, and private showroom events.
+            <p className="font-body text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
+              Subscribe to our newsletter for traditional health tips, new herbal product launches, and exclusive offers.
             </p>
           </div>
 
@@ -56,13 +56,13 @@ export default function NewsletterSection() {
                   if (status === 'error') setStatus('idle');
                 }}
                 disabled={status === 'loading' || status === 'success'}
-                className="w-full px-5 py-3 rounded-full border border-gray-200 focus:border-gray-900 bg-white placeholder-gray-400 focus:outline-none focus:ring-0 text-xs sm:text-sm text-gray-900 font-body transition-colors disabled:bg-gray-100"
+                className="w-full px-5 py-3 rounded-full border border-gray-200 focus:border-gray-900 bg-white placeholder-gray-400 focus:outline-none focus:ring-0 text-xs sm:text-sm text-primary font-body transition-colors disabled:bg-muted"
               />
             </div>
             <Button 
               type="submit" 
               disabled={status === 'loading' || status === 'success'}
-              className="bg-[#111827] text-white hover:bg-gray-800 rounded-full py-3 px-8 font-body text-xs sm:text-sm uppercase tracking-wider h-auto"
+              className="bg-primary text-white hover:bg-primary rounded-full py-3 px-8 font-body text-xs sm:text-sm uppercase tracking-wider h-auto"
             >
               {status === 'loading' ? (
                 'Subscribing...'

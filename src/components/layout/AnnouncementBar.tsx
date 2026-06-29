@@ -18,7 +18,7 @@ export default function AnnouncementBar() {
   const messages = announcement.split(' • ').map(m => m.trim());
 
   return (
-    <div className="bg-[#111827] text-[#F9FAFB] text-[11px] font-semibold tracking-widest uppercase py-2.5 px-4 text-center border-b border-white/10 relative overflow-hidden select-none">
+    <div className="bg-primary text-primary-foreground text-[11px] font-semibold tracking-widest uppercase py-2.5 px-4 text-center border-b border-white/10 relative overflow-hidden select-none">
       <div className="max-w-7xl mx-auto flex justify-center items-center h-4">
         {messages.length <= 1 ? (
           <span>{announcement}</span>

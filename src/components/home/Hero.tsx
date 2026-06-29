@@ -24,7 +24,7 @@ export default function Hero() {
 
   if (slides.length === 0) {
     return (
-      <div className="h-screen bg-[#111827] flex items-center justify-center">
+      <div className="h-screen bg-primary flex items-center justify-center">
         <div className="animate-pulse space-y-4 text-center">
           <div className="h-8 w-48 bg-white/10 rounded mx-auto" />
           <div className="h-12 w-96 bg-white/10 rounded mx-auto" />
@@ -35,7 +35,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative h-screen w-full bg-[#111827] overflow-hidden">
+    <section className="relative h-screen w-full bg-primary overflow-hidden">
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
@@ -74,7 +74,7 @@ export default function Hero() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: -20, opacity: 0 }}
                       transition={{ duration: 0.6, delay: 0.2 }}
-                      className="font-heading text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#2563EB]"
+                      className="font-heading text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-secondary"
                     >
                       {slide.tagline}
                     </motion.p>
@@ -109,7 +109,7 @@ export default function Hero() {
                       transition={{ duration: 0.6, delay: 0.8 }}
                       className="flex flex-wrap gap-4 pt-4"
                     >
-                      <Button asChild className="bg-white text-gray-900 hover:bg-gray-100 rounded-full font-body text-xs sm:text-sm uppercase tracking-wider px-8 py-6 flex items-center">
+                      <Button asChild className="bg-white text-primary hover:bg-muted rounded-full font-body text-xs sm:text-sm uppercase tracking-wider px-8 py-6 flex items-center">
                         <Link href={slide.primaryUrl}>
                           {slide.primaryCta} <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>

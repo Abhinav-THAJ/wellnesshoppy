@@ -36,11 +36,11 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
         
         {/* Title */}
         <div className="mb-10">
-          <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+          <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight">
             Search Results
           </h1>
-          <p className="font-body text-xs text-gray-500 mt-1">
-            Query: <span className="text-[#2563EB] font-bold">&ldquo;{query}&rdquo;</span>
+          <p className="font-body text-xs text-muted-foreground mt-1">
+            Query: <span className="text-secondary font-bold">&ldquo;{query}&rdquo;</span>
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
             ))}
           </div>
         ) : products.length === 0 ? (
-          <div className="text-center py-20 bg-gray-50/50 rounded-3xl p-8 border border-gray-50 max-w-xl mx-auto">
+          <div className="text-center py-20 bg-background/50 rounded-3xl p-8 border border-gray-50 max-w-xl mx-auto">
             <div className="w-24 h-24 mx-auto mb-4">
               <img src="/images/illustrations/empty.png" alt="No matches" className="object-contain w-full h-full" />
             </div>
@@ -60,7 +60,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
             <p className="font-body text-xs text-gray-400 font-light mt-1">
               We could not find any design masterpieces that match your query. Try something different.
             </p>
-            <Button asChild className="bg-[#111827] text-white hover:bg-gray-800 rounded-full font-body text-xs uppercase tracking-wider px-6 mt-6">
+            <Button asChild className="bg-primary text-white hover:bg-primary rounded-full font-body text-xs uppercase tracking-wider px-6 mt-6">
               <Link href="/shop">Browse Store</Link>
             </Button>
           </div>

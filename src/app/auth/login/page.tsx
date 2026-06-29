@@ -76,13 +76,13 @@ export default function LoginPage() {
         
         {/* Title */}
         <div className="space-y-2">
-          <span className="font-heading text-xs font-bold tracking-[0.2em] text-[#2563EB] uppercase">
+          <span className="font-heading text-xs font-bold tracking-[0.2em] text-secondary uppercase">
             Private Atelier
           </span>
-          <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+          <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight">
             Sign In
           </h1>
-          <p className="font-body text-xs text-gray-500 font-light max-w-xs mx-auto">
+          <p className="font-body text-xs text-muted-foreground font-light max-w-xs mx-auto">
             Log in to manage orders, track delivery couriers, and browse saved wishlists.
           </p>
         </div>
@@ -108,7 +108,7 @@ export default function LoginPage() {
           <div className="space-y-1">
             <div className="flex justify-between items-center">
               <label className="font-heading text-[10px] font-bold uppercase tracking-widest text-gray-400">Password</label>
-              <Link href="/auth/forgot" className="font-body text-[10px] text-gray-400 hover:text-gray-900">Forgot password?</Link>
+              <Link href="/auth/forgot" className="font-body text-[10px] text-gray-400 hover:text-primary">Forgot password?</Link>
             </div>
             <div className="relative">
               <Input 
@@ -125,7 +125,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-900"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary"
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
@@ -141,7 +141,7 @@ export default function LoginPage() {
           <Button 
             type="submit"
             disabled={status === 'loading'}
-            className="w-full rounded-full py-6 font-body text-xs uppercase tracking-wider font-bold bg-[#111827] text-white hover:bg-gray-800 h-auto"
+            className="w-full rounded-full py-6 font-body text-xs uppercase tracking-wider font-bold bg-primary text-white hover:bg-primary h-auto"
           >
             {status === 'loading' ? 'Verifying Account...' : (
               <span className="flex items-center justify-center">Enter Dashboard <ArrowRight className="ml-2 h-4 w-4" /></span>
@@ -151,16 +151,16 @@ export default function LoginPage() {
         </form>
 
         {/* Demo hints */}
-        <div className="p-4 bg-gray-50 border border-gray-100 rounded-2xl text-left">
+        <div className="p-4 bg-background border border-gray-100 rounded-2xl text-left">
           <p className="font-heading text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Demo Access Code</p>
-          <p className="font-body text-[11px] text-gray-500 font-light">
-            You can use <span className="font-bold text-gray-900">admin@empire.com</span> with password <span className="font-bold text-gray-900">admin123</span>, or input any email/password to sign in automatically!
+          <p className="font-body text-[11px] text-muted-foreground font-light">
+            You can use <span className="font-bold text-primary">admin@empire.com</span> with password <span className="font-bold text-primary">admin123</span>, or input any email/password to sign in automatically!
           </p>
         </div>
 
         {/* Register link */}
-        <div className="font-body text-xs text-gray-500">
-          New client? <Link href="/auth/register" className="font-bold text-[#2563EB] hover:underline">Create a credentials profile</Link>
+        <div className="font-body text-xs text-muted-foreground">
+          New client? <Link href="/auth/register" className="font-bold text-secondary hover:underline">Create a credentials profile</Link>
         </div>
 
       </div>

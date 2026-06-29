@@ -91,7 +91,7 @@ export const api = {
         id: cat.id,
         name: cat.name,
         slug: cat.slug,
-        image: cat.image?.src || 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600&auto=format&fit=crop',
+        image: cat.image?.src || '/images/kerala_coconut_oil.png',
         count: cat.count,
         description: cat.description || ''
       }));
@@ -195,7 +195,7 @@ export const api = {
       return res.data.map((r: any) => ({
         id: r.id,
         author: r.reviewer,
-        avatar: r.reviewer_avatar_urls?.['96'] || 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop',
+        avatar: r.reviewer_avatar_urls?.['96'] || '/images/ayurvedic_cream.png',
         rating: r.rating,
         date: r.date_created.split('T')[0],
         title: 'Review',
@@ -249,7 +249,7 @@ export const api = {
           date: new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
           author: post._embedded?.['author']?.[0]?.name || 'Editor',
           authorRole: 'Contributor',
-          image: featuredMedia || 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=800&auto=format&fit=crop',
+          image: featuredMedia || '/images/kerala_vibe.png',
           readTime: '5 min read',
           tags: []
         };
@@ -276,7 +276,7 @@ export const api = {
           date: new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
           author: post._embedded?.['author']?.[0]?.name || 'Editor',
           authorRole: 'Contributor',
-          image: featuredMedia || 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=800&auto=format&fit=crop',
+          image: featuredMedia || '/images/kerala_herbs.png',
           readTime: '5 min read',
           tags: []
         };
@@ -365,7 +365,7 @@ export const api = {
   mapWcProduct: (wcProduct: any): Product => {
     const images = wcProduct.images?.length > 0 
       ? wcProduct.images.map((img: any) => img.src) 
-      : ['https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop'];
+      : ['/images/kerala_handloom.png'];
 
     const attributes = wcProduct.attributes?.map((attr: any) => ({
       name: attr.name,

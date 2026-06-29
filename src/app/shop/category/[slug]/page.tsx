@@ -41,21 +41,21 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         
         {/* Navigation Header */}
         <div className="mb-10">
-          <Link href="/shop" className="inline-flex items-center text-xs font-body uppercase font-bold tracking-wider text-gray-500 hover:text-gray-900 transition-colors">
+          <Link href="/shop" className="inline-flex items-center text-xs font-body uppercase font-bold tracking-wider text-muted-foreground hover:text-primary transition-colors">
             <ArrowLeft className="h-4 w-4 mr-2" /> Back to Catalog
           </Link>
           
           {categoryInfo ? (
             <div className="mt-6 max-w-xl">
-              <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight capitalize">
+              <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-primary tracking-tight capitalize">
                 {categoryInfo.name}
               </h1>
-              <p className="font-body text-xs sm:text-sm text-gray-500 font-light mt-3 leading-relaxed">
+              <p className="font-body text-xs sm:text-sm text-muted-foreground font-light mt-3 leading-relaxed">
                 {categoryInfo.description}
               </p>
             </div>
           ) : (
-            <div className="h-24 bg-gray-50 animate-pulse rounded-2xl mt-6 max-w-xl" />
+            <div className="h-24 bg-background animate-pulse rounded-2xl mt-6 max-w-xl" />
           )}
         </div>
 
@@ -67,7 +67,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             ))}
           </div>
         ) : products.length === 0 ? (
-          <div className="text-center py-20 bg-gray-50/50 rounded-3xl p-8 border border-gray-50 max-w-xl mx-auto">
+          <div className="text-center py-20 bg-background/50 rounded-3xl p-8 border border-gray-50 max-w-xl mx-auto">
             <div className="w-24 h-24 mx-auto mb-4">
               <img src="/images/illustrations/empty.png" alt="No items" className="object-contain w-full h-full" />
             </div>
@@ -75,7 +75,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             <p className="font-body text-xs text-gray-400 font-light mt-1">
               There are currently no items available in this category.
             </p>
-            <Button asChild className="bg-[#111827] text-white hover:bg-gray-800 rounded-full font-body text-xs uppercase tracking-wider px-6 mt-6">
+            <Button asChild className="bg-primary text-white hover:bg-primary rounded-full font-body text-xs uppercase tracking-wider px-6 mt-6">
               <Link href="/shop">Explore Shop</Link>
             </Button>
           </div>

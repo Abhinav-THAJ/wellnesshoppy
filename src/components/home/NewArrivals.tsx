@@ -21,16 +21,16 @@ export default function NewArrivals() {
   if (products.length === 0) return null;
 
   return (
-    <section className="py-24 bg-gray-50/50">
+    <section className="py-24 bg-background/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="mb-12 text-center">
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
+          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight mb-2">
             New Collections
           </h2>
-          <p className="font-body text-xs sm:text-sm text-gray-500 font-light max-w-md mx-auto">
-            Fresh arrivals fresh from our global design atelier, engineered to set modern styling standards.
+          <p className="font-body text-xs sm:text-sm text-muted-foreground font-light max-w-md mx-auto">
+            Discover the newest additions to our collection of natural wellness and traditional foods.
           </p>
         </div>
 

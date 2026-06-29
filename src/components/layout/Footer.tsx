@@ -24,7 +24,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#111827] text-white pt-20 pb-10 border-t border-white/5 font-sans">
+    <footer className="bg-primary text-white pt-20 pb-10 border-t border-white/5 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Footer Top */}
@@ -33,10 +33,10 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="col-span-2 space-y-6">
             <Link href="/" className="font-heading text-xl font-extrabold tracking-widest uppercase text-white">
-              EMPIRE
+              WELLNESSHOPPY
             </Link>
             <p className="font-body text-xs text-gray-400 max-w-sm leading-relaxed">
-              Bespoke luxury headless eCommerce platform connecting premium materials, clean code, and fast customer experiences worldwide.
+              Authentic Kerala herbal wellness, traditional foods, and handloom products crafted with care.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="p-2 bg-white/5 hover:bg-white/10 rounded-full text-white/70 hover:text-white transition-all" aria-label="Instagram">
@@ -117,7 +117,7 @@ export default function Footer() {
               <Link 
                 key={item.name} 
                 href={item.href} 
-                className="font-body text-[10px] text-gray-500 hover:text-gray-300 transition-colors uppercase tracking-widest"
+                className="font-body text-[10px] text-muted-foreground hover:text-gray-300 transition-colors uppercase tracking-widest"
               >
                 {item.name}
               </Link>
@@ -126,7 +126,7 @@ export default function Footer() {
 
           {/* Newsletter Form */}
           <div className="w-full max-w-sm space-y-3">
-            <h5 className="font-heading text-xs font-bold tracking-widest uppercase text-white">Join the Atelier Newsletter</h5>
+            <h5 className="font-heading text-xs font-bold tracking-widest uppercase text-white">Join Our Wellness Newsletter</h5>
             <form onSubmit={handleSubscribe} className="relative flex items-center border-b border-white/20 focus-within:border-white transition-colors">
               <input 
                 type="email"
@@ -148,7 +148,7 @@ export default function Footer() {
               </button>
             </form>
             {status === 'loading' && <p className="font-body text-[10px] text-gray-400">Verifying address...</p>}
-            {status === 'success' && <p className="font-body text-[10px] text-[#10B981] font-semibold">Welcome to the inner circle.</p>}
+            {status === 'success' && <p className="font-body text-[10px] text-[#10B981] font-semibold">Welcome to our wellness family.</p>}
             {status === 'error' && <p className="font-body text-[10px] text-[#EF4444]">Please enter a valid email address.</p>}
           </div>
 
@@ -156,8 +156,8 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-16 text-center border-t border-white/5 pt-8">
-          <p className="font-body text-[10px] text-gray-600 tracking-wider">
-            &copy; {new Date().getFullYear()} EMPIRE ONLINE ATELIER. FOR DEMO PURPOSES ONLY. POWERED BY NEXT.JS 16 & WOOCOMMERCE.
+          <p className="font-body text-[10px] text-muted-foreground tracking-wider">
+            &copy; {new Date().getFullYear()} WELLNESSHOPPY. ALL RIGHTS RESERVED.
           </p>
         </div>
 

@@ -46,7 +46,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${plusJakartaSans.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-white text-gray-900">
+      <body className="min-h-full flex flex-col font-sans bg-white text-primary">
         <Providers>
           <AnnouncementBar />
           <Header />

@@ -60,13 +60,13 @@ export default function RegisterPage() {
         
         {/* Title */}
         <div className="space-y-2">
-          <span className="font-heading text-xs font-bold tracking-[0.2em] text-[#2563EB] uppercase">
+          <span className="font-heading text-xs font-bold tracking-[0.2em] text-secondary uppercase">
             Private Atelier
           </span>
-          <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+          <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight">
             Create Profile
           </h1>
-          <p className="font-body text-xs text-gray-500 font-light max-w-xs mx-auto">
+          <p className="font-body text-xs text-muted-foreground font-light max-w-xs mx-auto">
             Create your credentials profile to unlock early access, custom wishlists, and seamless orders.
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function RegisterPage() {
           <Button 
             type="submit"
             disabled={status === 'loading'}
-            className="w-full rounded-full py-6 font-body text-xs uppercase tracking-wider font-bold bg-[#111827] text-white hover:bg-gray-800 h-auto"
+            className="w-full rounded-full py-6 font-body text-xs uppercase tracking-wider font-bold bg-primary text-white hover:bg-primary h-auto"
           >
             {status === 'loading' ? 'Creating Credentials...' : (
               <span className="flex items-center justify-center">Register Client <ArrowRight className="ml-2 h-4 w-4" /></span>
@@ -138,8 +138,8 @@ export default function RegisterPage() {
         </form>
 
         {/* Login link */}
-        <div className="font-body text-xs text-gray-500">
-          Already registered? <Link href="/auth/login" className="font-bold text-[#2563EB] hover:underline">Sign in to your dashboard</Link>
+        <div className="font-body text-xs text-muted-foreground">
+          Already registered? <Link href="/auth/login" className="font-bold text-secondary hover:underline">Sign in to your dashboard</Link>
         </div>
 
       </div>

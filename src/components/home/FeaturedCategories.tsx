@@ -20,16 +20,16 @@ export default function FeaturedCategories() {
         
         {/* Section Header */}
         <div className="mb-12 text-center max-w-xl mx-auto">
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
+          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight mb-3">
             Shop by Category
           </h2>
-          <p className="font-body text-xs sm:text-sm text-gray-500 font-light">
-            Indulge in design integrity and premium utility across our custom collections.
+          <p className="font-body text-xs sm:text-sm text-muted-foreground font-light">
+            Discover the essence of pure nature and authentic traditions.
           </p>
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {cats.map((cat, idx) => (
             <motion.div
               key={cat.id}
@@ -39,7 +39,7 @@ export default function FeaturedCategories() {
               transition={{ duration: 0.5, delay: idx * 0.05 }}
               className="group relative"
             >
-              <Link href={`/shop/category/${cat.slug}`} className="block relative overflow-hidden rounded-2xl bg-gray-50 aspect-square">
+              <Link href={`/shop/category/${cat.slug}`} className="block relative overflow-hidden rounded-2xl bg-background aspect-square">
                 
                 {/* Image */}
                 <img 

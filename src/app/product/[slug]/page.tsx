@@ -101,12 +101,12 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
     return (
       <div className="pt-32 pb-20 max-w-7xl mx-auto px-4 animate-pulse space-y-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className="bg-gray-100 aspect-square rounded-3xl" />
+          <div className="bg-muted aspect-square rounded-3xl" />
           <div className="space-y-4">
-            <div className="h-6 w-1/4 bg-gray-100 rounded" />
-            <div className="h-10 w-3/4 bg-gray-100 rounded" />
-            <div className="h-6 w-1/3 bg-gray-100 rounded" />
-            <div className="h-20 w-full bg-gray-100 rounded" />
+            <div className="h-6 w-1/4 bg-muted rounded" />
+            <div className="h-10 w-3/4 bg-muted rounded" />
+            <div className="h-6 w-1/3 bg-muted rounded" />
+            <div className="h-20 w-full bg-muted rounded" />
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
       <div className="pt-32 pb-20 max-w-xl mx-auto text-center px-4">
         <h2 className="font-heading text-2xl font-bold">Product not found</h2>
         <p className="font-body text-xs text-gray-400 mt-2">The design masterpiece you are looking for has been retired or moved.</p>
-        <Button asChild className="mt-6 rounded-full bg-[#111827]">
+        <Button asChild className="mt-6 rounded-full bg-primary">
           <Link href="/shop">Back to Shop</Link>
         </Button>
       </div>
@@ -184,7 +184,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
         const newRev: Review = {
           id: Date.now(),
           author: reviewAuthor,
-          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop',
+          avatar: '/images/kerala_vibe.png',
           rating: reviewRating,
           date: new Date().toISOString().split('T')[0],
           title: 'Customer Review',
@@ -207,13 +207,13 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
         
         {/* Breadcrumbs */}
         <div className="flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-8">
-          <Link href="/" className="hover:text-gray-900">Home</Link>
+          <Link href="/" className="hover:text-primary">Home</Link>
           <span>/</span>
-          <Link href="/shop" className="hover:text-gray-900">Shop</Link>
+          <Link href="/shop" className="hover:text-primary">Shop</Link>
           <span>/</span>
-          <Link href={`/shop/category/${product.categorySlug}`} className="hover:text-gray-900">{product.category}</Link>
+          <Link href={`/shop/category/${product.categorySlug}`} className="hover:text-primary">{product.category}</Link>
           <span>/</span>
-          <span className="text-gray-900 truncate max-w-[200px]">{product.name}</span>
+          <span className="text-primary truncate max-w-[200px]">{product.name}</span>
         </div>
 
         {/* Product Brief Layout */}
@@ -221,7 +221,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
           
           {/* Left Column: Gallery Carousel with zoom preview */}
           <div className="space-y-4">
-            <div className="aspect-[4/5] bg-gray-50 rounded-3xl overflow-hidden relative border border-gray-100 shadow-inner group">
+            <div className="aspect-[4/5] bg-background rounded-3xl overflow-hidden relative border border-gray-100 shadow-inner group">
               <img 
                 src={activeImage} 
                 alt={product.name} 
@@ -236,8 +236,8 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                   <button
                     key={i}
                     onClick={() => setActiveImage(img)}
-                    className={`w-16 h-20 bg-gray-50 rounded-xl overflow-hidden flex-shrink-0 border-2 transition-all ${
-                      activeImage === img ? 'border-[#111827] opacity-100' : 'border-transparent opacity-60 hover:opacity-100'
+                    className={`w-16 h-20 bg-background rounded-xl overflow-hidden flex-shrink-0 border-2 transition-all ${
+                      activeImage === img ? 'border-primary opacity-100' : 'border-transparent opacity-60 hover:opacity-100'
                     }`}
                   >
                     <img src={img} alt="" className="w-full h-full object-cover" />
@@ -252,7 +252,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
             
             <div className="space-y-2.5">
               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">{product.category}</span>
-              <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+              <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight leading-tight">
                 {product.name}
               </h1>
               
@@ -268,13 +268,13 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                 </div>
                 <span className="font-body text-xs font-bold text-gray-700">{product.rating}</span>
                 <span className="text-gray-300">|</span>
-                <span className="font-body text-xs text-gray-500">{reviewsList.length} verified reviews</span>
+                <span className="font-body text-xs text-muted-foreground">{reviewsList.length} verified reviews</span>
               </div>
             </div>
 
             {/* Price display */}
             <div className="flex items-baseline space-x-3 py-2 border-y border-gray-100">
-              <span className="font-body text-2xl sm:text-3xl font-extrabold text-gray-900">${currentPrice}</span>
+              <span className="font-body text-2xl sm:text-3xl font-extrabold text-primary">${currentPrice}</span>
               {product.regularPrice && product.regularPrice > currentPrice && (
                 <span className="font-body text-sm text-gray-400 line-through">${product.regularPrice}</span>
               )}
@@ -284,7 +284,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
             </div>
 
             {/* Short Description */}
-            <p className="font-body text-xs sm:text-sm text-gray-500 leading-relaxed font-light">
+            <p className="font-body text-xs sm:text-sm text-muted-foreground leading-relaxed font-light">
               {product.shortDescription}
             </p>
 
@@ -301,7 +301,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                       onClick={() => setSelectedAttrs(prev => ({ ...prev, [attr.name]: opt }))}
                       className={`px-4 py-2 rounded-full text-xs font-body border transition-all ${
                         selectedAttrs[attr.name] === opt
-                          ? 'bg-[#111827] border-[#111827] text-white'
+                          ? 'bg-primary border-primary text-white'
                           : 'bg-white border-gray-100 hover:border-gray-300 text-gray-700'
                       }`}
                     >
@@ -317,11 +317,11 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
               <div className="flex flex-wrap items-center gap-6">
                 
                 {/* Quantity */}
-                <div className="flex items-center border border-gray-100 rounded-full py-2 px-4 bg-gray-50">
+                <div className="flex items-center border border-gray-100 rounded-full py-2 px-4 bg-background">
                   <button 
                     onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
                     disabled={isOutOfStock}
-                    className="p-1 text-gray-400 hover:text-gray-900 disabled:opacity-30"
+                    className="p-1 text-gray-400 hover:text-primary disabled:opacity-30"
                   >
                     <Minus className="h-4 w-4" />
                   </button>
@@ -329,7 +329,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                   <button 
                     onClick={() => setQuantity(prev => prev + 1)}
                     disabled={isOutOfStock}
-                    className="p-1 text-gray-400 hover:text-gray-900 disabled:opacity-30"
+                    className="p-1 text-gray-400 hover:text-primary disabled:opacity-30"
                   >
                     <Plus className="h-4 w-4" />
                   </button>
@@ -350,7 +350,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                   onClick={() => handleAddToCart(false)}
                   disabled={isOutOfStock || added}
                   className={`flex-1 rounded-full py-6 font-body text-xs sm:text-sm uppercase tracking-wider font-bold ${
-                    added ? 'bg-[#10B981]' : 'bg-[#111827] hover:bg-gray-800 text-white'
+                    added ? 'bg-[#10B981]' : 'bg-primary hover:bg-primary text-white'
                   }`}
                 >
                   {isOutOfStock ? 'Sold Out' : added ? 'Added to Cart' : 'Add to Cart'}
@@ -359,14 +359,14 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                 <Button 
                   onClick={() => handleAddToCart(true)}
                   disabled={isOutOfStock}
-                  className="flex-1 rounded-full py-6 font-body text-xs sm:text-sm uppercase tracking-wider font-bold bg-[#2563EB] hover:bg-blue-700 text-white"
+                  className="flex-1 rounded-full py-6 font-body text-xs sm:text-sm uppercase tracking-wider font-bold bg-secondary hover:bg-secondary/90 text-white"
                 >
                   Buy Now
                 </Button>
               </div>
 
               {/* Utility actions: Wishlist & Compare */}
-              <div className="flex justify-between items-center text-xs font-body text-gray-500 pt-2 px-2">
+              <div className="flex justify-between items-center text-xs font-body text-muted-foreground pt-2 px-2">
                 <button 
                   onClick={() => toggleWishlist(product)}
                   className="flex items-center hover:text-red-500 transition-colors"
@@ -376,26 +376,26 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                 </button>
                 <button 
                   onClick={() => toggleCompare(product)}
-                  className="flex items-center hover:text-[#2563EB] transition-colors"
+                  className="flex items-center hover:text-secondary transition-colors"
                 >
-                  <BarChart2 className={`h-4 w-4 mr-2 ${isCompareChecked ? 'text-[#2563EB]' : ''}`} />
+                  <BarChart2 className={`h-4 w-4 mr-2 ${isCompareChecked ? 'text-secondary' : ''}`} />
                   {isCompareChecked ? 'Remove from Compare' : 'Compare Product'}
                 </button>
               </div>
             </div>
 
             {/* Security labels */}
-            <div className="grid grid-cols-3 gap-2 bg-gray-50/50 rounded-2xl p-4 text-center border border-gray-50">
+            <div className="grid grid-cols-3 gap-2 bg-background/50 rounded-2xl p-4 text-center border border-gray-50">
               <div className="flex flex-col items-center gap-1">
-                <Sparkles className="h-4 w-4 text-[#2563EB]" />
+                <Sparkles className="h-4 w-4 text-secondary" />
                 <span className="font-body text-[9px] font-bold text-gray-700 uppercase">Premium Quality</span>
               </div>
               <div className="flex flex-col items-center gap-1">
-                <RefreshCw className="h-4 w-4 text-[#2563EB]" />
+                <RefreshCw className="h-4 w-4 text-secondary" />
                 <span className="font-body text-[9px] font-bold text-gray-700 uppercase">30-Day Returns</span>
               </div>
               <div className="flex flex-col items-center gap-1">
-                <ShieldCheck className="h-4 w-4 text-[#2563EB]" />
+                <ShieldCheck className="h-4 w-4 text-secondary" />
                 <span className="font-body text-[9px] font-bold text-gray-700 uppercase">Secure Checkout</span>
               </div>
             </div>
@@ -411,14 +411,14 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                 <TabsTrigger
                   key={t}
                   value={t}
-                  className="font-heading text-xs uppercase tracking-widest pb-3 rounded-none border-b-2 border-transparent bg-transparent hover:text-gray-900 data-[state=active]:border-gray-900 data-[state=active]:text-gray-900 data-[state=active]:shadow-none font-bold text-gray-400"
+                  className="font-heading text-xs uppercase tracking-widest pb-3 rounded-none border-b-2 border-transparent bg-transparent hover:text-primary data-[state=active]:border-gray-900 data-[state=active]:text-primary data-[state=active]:shadow-none font-bold text-gray-400"
                 >
                   {t}
                 </TabsTrigger>
               ))}
             </TabsList>
             
-            <TabsContent value="description" className="py-8 font-body text-xs sm:text-sm text-gray-500 leading-relaxed font-light space-y-4">
+            <TabsContent value="description" className="py-8 font-body text-xs sm:text-sm text-muted-foreground leading-relaxed font-light space-y-4">
               <p>{product.description}</p>
             </TabsContent>
 
@@ -427,9 +427,9 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                 <table className="w-full text-xs font-body">
                   <tbody>
                     {Object.entries(product.specifications || {}).map(([key, value], idx) => (
-                      <tr key={key} className={idx % 2 === 0 ? 'bg-gray-50/50' : 'bg-white'}>
-                        <td className="px-6 py-4 font-bold text-gray-900 w-1/3 border-b border-gray-50">{key}</td>
-                        <td className="px-6 py-4 text-gray-500 border-b border-gray-50">{value}</td>
+                      <tr key={key} className={idx % 2 === 0 ? 'bg-background/50' : 'bg-white'}>
+                        <td className="px-6 py-4 font-bold text-primary w-1/3 border-b border-gray-50">{key}</td>
+                        <td className="px-6 py-4 text-muted-foreground border-b border-gray-50">{value}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -440,7 +440,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
             <TabsContent value="reviews" className="py-8 space-y-10">
               {/* Reviews List */}
               <div className="space-y-6">
-                <h3 className="font-heading text-sm font-bold text-gray-900">Verified Reviews ({reviewsList.length})</h3>
+                <h3 className="font-heading text-sm font-bold text-primary">Verified Reviews ({reviewsList.length})</h3>
                 {reviewsList.length === 0 ? (
                   <p className="font-body text-xs text-gray-400">There are no reviews for this product yet. Be the first to share your experience.</p>
                 ) : (
@@ -462,10 +462,10 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                             </span>
                           )}
                         </div>
-                        <h4 className="font-heading text-xs font-bold text-gray-900">{rev.title}</h4>
-                        <p className="font-body text-xs text-gray-500 leading-relaxed font-light">{rev.content}</p>
+                        <h4 className="font-heading text-xs font-bold text-primary">{rev.title}</h4>
+                        <p className="font-body text-xs text-muted-foreground leading-relaxed font-light">{rev.content}</p>
                         <div className="pt-2 flex items-center space-x-2 text-[10px] text-gray-400 font-body">
-                          <span className="font-bold text-gray-600">{rev.author}</span>
+                          <span className="font-bold text-muted-foreground">{rev.author}</span>
                           <span>•</span>
                           <span>{rev.date}</span>
                         </div>
@@ -476,8 +476,8 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
               </div>
 
               {/* Review Input Form */}
-              <div className="max-w-xl border border-gray-100 rounded-3xl p-6 sm:p-8 bg-gray-50/50">
-                <h3 className="font-heading text-sm font-bold text-gray-900 mb-6">Write a Review</h3>
+              <div className="max-w-xl border border-gray-100 rounded-3xl p-6 sm:p-8 bg-background/50">
+                <h3 className="font-heading text-sm font-bold text-primary mb-6">Write a Review</h3>
                 <form onSubmit={handleReviewSubmit} className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1">
@@ -532,7 +532,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
                   <Button 
                     type="submit" 
                     disabled={submitStatus === 'loading'}
-                    className="rounded-full bg-[#111827] text-white hover:bg-gray-800 font-body text-xs uppercase tracking-wider px-8"
+                    className="rounded-full bg-primary text-white hover:bg-primary font-body text-xs uppercase tracking-wider px-8"
                   >
                     {submitStatus === 'loading' ? 'Submitting...' : 'Submit Review'}
                   </Button>
@@ -546,8 +546,8 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
             <TabsContent value="faqs" className="py-8 space-y-4 max-w-2xl">
               {product.faqs?.map((faq, idx) => (
                 <div key={idx} className="border-b border-gray-100 pb-4">
-                  <h4 className="font-heading text-xs sm:text-sm font-bold text-gray-900">{faq.question}</h4>
-                  <p className="font-body text-xs text-gray-500 font-light mt-1.5 leading-relaxed">{faq.answer}</p>
+                  <h4 className="font-heading text-xs sm:text-sm font-bold text-primary">{faq.question}</h4>
+                  <p className="font-body text-xs text-muted-foreground font-light mt-1.5 leading-relaxed">{faq.answer}</p>
                 </div>
               ))}
             </TabsContent>
@@ -557,7 +557,7 @@ export default function ProductDetailsPage({ params }: ProductPageProps) {
         {/* Related Products Grid */}
         {relatedProducts.length > 0 && (
           <div className="border-t border-gray-50 pt-16 mb-20">
-            <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight mb-8">Related Masterpieces</h2>
+            <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-primary tracking-tight mb-8">Related Masterpieces</h2>
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {relatedProducts.map((p) => (
                 <SingleProductCard key={p.id} product={p} />

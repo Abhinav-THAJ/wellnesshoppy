@@ -103,8 +103,8 @@ export default function ShopPage() {
         
         {/* Breadcrumb / Title */}
         <div className="mb-8">
-          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">Atelier Catalog</h1>
-          <p className="font-body text-xs sm:text-sm text-gray-500 font-light mt-2">Browse the complete spectrum of design masterworks.</p>
+          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-primary tracking-tight">Atelier Catalog</h1>
+          <p className="font-body text-xs sm:text-sm text-muted-foreground font-light mt-2">Browse the complete spectrum of design masterworks.</p>
         </div>
 
         {/* Toolbar */}
@@ -113,7 +113,7 @@ export default function ShopPage() {
             {/* Filter Toggle on Mobile */}
             <Button 
               onClick={() => setShowFiltersMobile(!showFiltersMobile)}
-              className="lg:hidden bg-gray-50 text-gray-900 hover:bg-gray-100 border border-gray-100 rounded-full text-xs font-body uppercase tracking-wider py-2 px-5"
+              className="lg:hidden bg-background text-primary hover:bg-muted border border-gray-100 rounded-full text-xs font-body uppercase tracking-wider py-2 px-5"
             >
               <SlidersHorizontal className="h-4 w-4 mr-2" /> Filters
             </Button>
@@ -126,7 +126,7 @@ export default function ShopPage() {
           <div className="flex items-center space-x-2">
             <span className="font-body text-xs text-gray-400 hidden sm:inline">Sort by:</span>
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center font-body text-xs font-bold text-gray-900 hover:opacity-75 uppercase tracking-wider border border-gray-100 px-4 py-2 rounded-full outline-none">
+              <DropdownMenuTrigger className="flex items-center font-body text-xs font-bold text-primary hover:opacity-75 uppercase tracking-wider border border-gray-100 px-4 py-2 rounded-full outline-none">
                 {getSortLabel()} <ChevronDown className="ml-1 h-3.5 w-3.5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48 bg-white border border-gray-100 shadow-lg rounded-xl">
@@ -164,7 +164,7 @@ export default function ShopPage() {
                 <button 
                   onClick={() => setSelectedCat('')}
                   className={`text-left text-xs font-body transition-colors py-1 ${
-                    selectedCat === '' ? 'text-[#2563EB] font-bold' : 'text-gray-600 hover:text-gray-900'
+                    selectedCat === '' ? 'text-secondary font-bold' : 'text-muted-foreground hover:text-primary'
                   }`}
                 >
                   All Categories
@@ -178,7 +178,7 @@ export default function ShopPage() {
                       if (showFiltersMobile) setShowFiltersMobile(false);
                     }}
                     className={`text-left text-xs font-body transition-colors py-1 flex justify-between items-center ${
-                      selectedCat === cat.slug ? 'text-[#2563EB] font-bold' : 'text-gray-600 hover:text-gray-900'
+                      selectedCat === cat.slug ? 'text-secondary font-bold' : 'text-muted-foreground hover:text-primary'
                     }`}
                   >
                     <span>{cat.name}</span>
@@ -213,7 +213,7 @@ export default function ShopPage() {
                     key={stars}
                     onClick={() => setSelectedRating(selectedRating === stars ? null : stars)}
                     className={`text-left text-xs font-body py-1 flex items-center space-x-2 transition-colors ${
-                      selectedRating === stars ? 'text-[#2563EB] font-bold' : 'text-gray-600 hover:text-gray-900'
+                      selectedRating === stars ? 'text-secondary font-bold' : 'text-muted-foreground hover:text-primary'
                     }`}
                   >
                     <span>★ {stars}.0 & Up</span>
@@ -229,7 +229,7 @@ export default function ShopPage() {
                 checked={inStockOnly}
                 onCheckedChange={(checked) => setInStockOnly(!!checked)}
               />
-              <label htmlFor="stock" className="font-body text-xs text-gray-600 font-medium cursor-pointer select-none">
+              <label htmlFor="stock" className="font-body text-xs text-muted-foreground font-medium cursor-pointer select-none">
                 In Stock Only
               </label>
             </div>
@@ -253,17 +253,17 @@ export default function ShopPage() {
                 ))}
               </div>
             ) : products.length === 0 ? (
-              <div className="text-center py-20 bg-gray-50/50 rounded-3xl p-8 border border-gray-50">
+              <div className="text-center py-20 bg-background/50 rounded-3xl p-8 border border-gray-50">
                 <div className="w-28 h-28 mx-auto mb-4">
                   <img src="/images/illustrations/empty.png" alt="No results" className="object-contain w-full h-full" />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-gray-900">No architectural items found</h3>
+                <h3 className="font-heading text-lg font-bold text-primary">No architectural items found</h3>
                 <p className="font-body text-xs text-gray-400 font-light mt-1 max-w-xs mx-auto">
                   Try clearing your filter parameters or exploring other design categories.
                 </p>
                 <Button 
                   onClick={handleResetFilters}
-                  className="bg-[#111827] text-white hover:bg-gray-800 rounded-full font-body text-xs uppercase tracking-wider px-6 mt-6 h-10"
+                  className="bg-primary text-white hover:bg-primary rounded-full font-body text-xs uppercase tracking-wider px-6 mt-6 h-10"
                 >
                   Clear Filters
                 </Button>

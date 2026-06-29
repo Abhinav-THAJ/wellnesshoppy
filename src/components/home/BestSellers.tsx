@@ -35,19 +35,19 @@ export default function BestSellers() {
         {/* Header */}
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
+            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight mb-2">
               The Best Sellers
             </h2>
-            <p className="font-body text-xs sm:text-sm text-gray-500 font-light max-w-sm">
-              Our most-coveted, iconic releases, crafted to absolute technical refinement.
+            <p className="font-body text-xs sm:text-sm text-muted-foreground font-light max-w-sm">
+              Our most loved traditional wellness and natural products, trusted by families.
             </p>
           </div>
           {/* Navigation Buttons */}
           <div className="flex space-x-2">
-            <button className="swiper-button-prev-bestseller p-3 border border-gray-100 hover:border-gray-900 rounded-full hover:bg-gray-50 transition-colors">
+            <button className="swiper-button-prev-bestseller p-3 border border-gray-100 hover:border-gray-900 rounded-full hover:bg-background transition-colors">
               <ChevronLeft className="h-4 w-4" />
             </button>
-            <button className="swiper-button-next-bestseller p-3 border border-gray-100 hover:border-gray-900 rounded-full hover:bg-gray-50 transition-colors">
+            <button className="swiper-button-next-bestseller p-3 border border-gray-100 hover:border-gray-900 rounded-full hover:bg-background transition-colors">
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
@@ -78,7 +78,7 @@ export default function BestSellers() {
         </Swiper>
 
         {/* Custom Pagination container */}
-        <div className="swiper-pagination-bestseller !bottom-0 flex justify-center scale-90 [&_.swiper-pagination-bullet-active]:!bg-gray-900 [&_.swiper-pagination-bullet]:!bg-gray-300" />
+        <div className="swiper-pagination-bestseller !bottom-0 flex justify-center scale-90 [&_.swiper-pagination-bullet-active]:!bg-primary [&_.swiper-pagination-bullet]:!bg-gray-300" />
 
       </div>
     </section>

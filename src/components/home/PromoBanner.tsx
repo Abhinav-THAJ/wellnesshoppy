@@ -17,7 +17,7 @@ export default function PromoBanner() {
   if (!promo) return null;
 
   return (
-    <section className="relative py-32 overflow-hidden bg-[#111827]">
+    <section className="relative py-32 overflow-hidden bg-primary">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -36,7 +36,7 @@ export default function PromoBanner() {
           transition={{ duration: 0.7 }}
           className="max-w-2xl mx-auto space-y-6"
         >
-          <span className="font-heading text-xs font-bold tracking-[0.2em] uppercase text-[#2563EB]">
+          <span className="font-heading text-xs font-bold tracking-[0.2em] uppercase text-secondary">
             {promo.subtitle}
           </span>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight">
@@ -46,7 +46,7 @@ export default function PromoBanner() {
             {promo.desc}
           </p>
           <div className="pt-4">
-            <Button asChild className="bg-white text-gray-900 hover:bg-gray-100 rounded-full font-body text-xs uppercase tracking-wider px-8 py-5">
+            <Button asChild className="bg-white text-primary hover:bg-muted rounded-full font-body text-xs uppercase tracking-wider px-8 py-5">
               <Link href={promo.ctaUrl}>
                 {promo.ctaText} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

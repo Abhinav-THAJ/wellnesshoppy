@@ -15,27 +15,27 @@ import {
 } from '@/components/ui/sheet';
 
 const MEGA_MENU_CATEGORIES = [
-  { id: 'womens-fashion', name: "Women's Fashion" },
-  { id: 'mens-fashion', name: "Men's Fashion" },
-  { id: 'kids-fashion', name: "Kid's Fashion" },
-  { id: 'home-kitchen', name: "Home & Kitchen" },
-  { id: 'beauty', name: "Beauty" },
-  { id: 'gadgets', name: "Gadgets" },
-  { id: 'accessories', name: "Accessories" },
-  { id: 'health-wellness', name: "Health & Wellness" },
+  { id: 'herbal-care', name: "Herbal Care" },
+  { id: 'skin-care', name: "Skin Care" },
+  { id: 'baby-care', name: "Baby Care" },
+  { id: 'wellness-products', name: "Wellness" },
+  { id: 'traditional-foods', name: "Foods" },
+  { id: 'oils-ghee', name: "Oils & Ghee" },
+  { id: 'garments', name: "Garments" },
+  { id: 'handloom-products', name: "Handloom" },
 ];
 
-const WOMENS_FASHION_DATA = [
+const CATEGORY_DROPDOWN_DATA = [
   {
     column: 1,
     blocks: [
       {
-        title: "Shop All Ethnic Wear",
-        links: ["Kurtis & Kurtas", "Suits", "Sarees", "Lehengas", "Bottoms", "Blouses & Fabrics", "Dupattas", "Ethnic dresses"]
+        title: "Ayurvedic Care",
+        links: ["Hair Oils", "Massage Oils", "Pain Relief Balms"]
       },
       {
-        title: "Shop All Western Wear",
-        links: ["Tops & T-shirts", "Dresses", "Jeans", "Shirts", "Trousers"]
+        title: "Daily Wellness",
+        links: ["Vitality Powders", "Immunity Boosters"]
       }
     ]
   },
@@ -43,12 +43,8 @@ const WOMENS_FASHION_DATA = [
     column: 2,
     blocks: [
       {
-        title: "",
-        links: ["Skirts", "Shorts", "Jackets & Blazers", "Leggings", "Capris", "Jumpsuits", "Shrugs", "Sweaters", "Sweatshirts"]
-      },
-      {
-        title: "Activewear & Sportswear",
-        links: ["T-shirts", "Shorts", "Sets", "Jackets", "Track Pants"]
+        title: "Natural Skincare",
+        links: ["Fairness Powders", "Moisturising Creams", "Lip Care", "Stretch Mark Creams"]
       }
     ]
   },
@@ -56,16 +52,8 @@ const WOMENS_FASHION_DATA = [
     column: 3,
     blocks: [
       {
-        title: "",
-        links: ["Innerwear"]
-      },
-      {
-        title: "Lingerie & Lounge Sets",
-        links: ["Bras", "Panties", "Lingerie Sets", "Camisoles", "Sleepwear & Robes", "Shapewear", "Swimwear"]
-      },
-      {
-        title: "Shop All Footwear",
-        links: ["Casual Footwear", "Boots", "Sneakers", "Flip Flops", "Sports Shoes"]
+        title: "Traditional Foods",
+        links: ["Kannan Kaya", "Banana Powder", "Ragi Powder", "Dried Beef", "Pickles"]
       }
     ]
   },
@@ -73,20 +61,8 @@ const WOMENS_FASHION_DATA = [
     column: 4,
     blocks: [
       {
-        title: "",
-        links: ["Ethnic Footwear"]
-      },
-      {
-        title: "Bags, Wallets & Clutches",
-        links: ["Handbags", "Tote Bags", "Sling Bags", "Backpacks", "Wallets", "Clutches", "Premium Handbags"]
-      },
-      {
-        title: "Jewellery",
-        links: ["Gold", "Diamond", "Silver", "Fashion Jewellery"]
-      },
-      {
-        title: "Watches",
-        links: []
+        title: "Pure Oils & Ghee",
+        links: ["Virgin Coconut Oil", "Cow Ghee", "Black Seed Oil"]
       }
     ]
   }
@@ -99,7 +75,7 @@ export default function Header() {
   
   // Mega Menu State
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
-  const [activeCategoryTab, setActiveCategoryTab] = useState('womens-fashion');
+  const [activeCategoryTab, setActiveCategoryTab] = useState('herbal-care');
 
   // Zustand store selectors
   const cart = useAppStore((state) => state.cart);
@@ -134,15 +110,15 @@ export default function Header() {
           </Link>
         </div>
         <div className="flex items-center space-x-7">
-          <Link href="/cliq-cash" className="hidden md:block hover:opacity-80 transition-opacity font-semibold">CLiQ Cash</Link>
-          <Link href="/gift-card" className="hidden md:block hover:opacity-80 transition-opacity font-semibold">Gift Card</Link>
-          <Link href="/cliq-care" className="hidden md:block hover:opacity-80 transition-opacity font-semibold">CLiQ Care</Link>
-          <Link href="/track-orders" className="hidden md:block hover:opacity-80 transition-opacity font-semibold">Track Orders</Link>
+          <Link href="/about" className="hidden md:block hover:opacity-80 transition-opacity font-semibold">About Us</Link>
+          <Link href="/shop" className="hidden md:block hover:opacity-80 transition-opacity font-semibold">Shop</Link>
+          <Link href="/faq" className="hidden md:block hover:opacity-80 transition-opacity font-semibold">FAQ</Link>
+          <Link href="/contact" className="hidden md:block hover:opacity-80 transition-opacity font-semibold">Contact</Link>
           
           {user ? (
             <div className="flex items-center space-x-2">
               <span className="font-semibold">Hi, {user.displayName}</span>
-              <span className="text-gray-500">/</span>
+              <span className="text-muted-foreground">/</span>
               <button onClick={logout} className="hover:opacity-80 transition-opacity font-semibold">Logout</button>
             </div>
           ) : (
@@ -154,7 +130,7 @@ export default function Header() {
       </div>
 
       {/* Main Header - Dark Grey */}
-      <header className="bg-[#212121] text-white transition-all duration-300 border-t border-[#333333]">
+      <header className="bg-primary text-white transition-all duration-300 border-t border-muted">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex items-stretch h-[72px]">
           <div className="flex items-center justify-between w-full h-full">
             
@@ -163,11 +139,11 @@ export default function Header() {
               <Link href="/" className="flex flex-col items-start leading-none gap-0.5">
                 <span className="text-white font-extrabold text-[8px] sm:text-[11px] tracking-widest ml-0.5 opacity-90">THE</span>
                 <span className="text-white font-extrabold text-lg sm:text-2xl tracking-tight flex items-center">
-                  WELLNESS <span className="ml-1.5 text-lg sm:text-[22px] font-normal tracking-normal text-pink-500">H</span>
-                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-pink-600">O</span>
-                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-purple-500">P</span>
-                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-blue-500">P</span>
-                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-cyan-400">Y</span>
+                  WELLNESS <span className="ml-1.5 text-lg sm:text-[22px] font-normal tracking-normal text-secondary">H</span>
+                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-secondary">O</span>
+                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-secondary">P</span>
+                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-secondary">P</span>
+                  <span className="text-lg sm:text-[22px] font-normal tracking-normal text-secondary">Y</span>
                 </span>
               </Link>
             </div>
@@ -180,7 +156,7 @@ export default function Header() {
                 {/* Categories Dropdown Tab */}
                 <div 
                   className={`relative flex items-center px-4 cursor-pointer transition-colors ${
-                    isCategoriesOpen ? 'bg-white text-black' : 'text-white hover:bg-[#333333]'
+                    isCategoriesOpen ? 'bg-white text-black' : 'text-white hover:bg-muted'
                   }`}
                   onMouseEnter={() => setIsCategoriesOpen(true)}
                   onMouseLeave={() => setIsCategoriesOpen(false)}
@@ -202,7 +178,7 @@ export default function Header() {
                             key={cat.id}
                             onMouseEnter={() => setActiveCategoryTab(cat.id)}
                             className={`px-6 py-3 text-[14px] flex justify-between items-center transition-colors cursor-pointer ${
-                              activeCategoryTab === cat.id ? 'font-bold bg-gray-50' : 'font-medium text-gray-600 hover:bg-gray-50'
+                              activeCategoryTab === cat.id ? 'font-bold bg-background' : 'font-medium text-muted-foreground hover:bg-background'
                             }`}
                           >
                             {cat.name}
@@ -213,20 +189,20 @@ export default function Header() {
 
                       {/* Right Content Area */}
                       <div className="flex-1 p-8 grid grid-cols-4 gap-6 bg-white min-h-[450px]">
-                        {activeCategoryTab === 'womens-fashion' ? (
-                          WOMENS_FASHION_DATA.map((col, i) => (
+                        {activeCategoryTab ? (
+                          CATEGORY_DROPDOWN_DATA.map((col, i) => (
                             <div key={i} className="flex flex-col space-y-6">
                               {col.blocks.map((block, j) => (
                                 <div key={j} className="flex flex-col space-y-3">
                                   {block.title && (
-                                    <Link href="/shop" className="text-[13px] font-bold text-gray-900 hover:text-black">
+                                    <Link href="/shop" className="text-[13px] font-bold text-primary hover:text-black">
                                       {block.title}
                                     </Link>
                                   )}
                                   {block.links.length > 0 && (
                                     <div className="flex flex-col space-y-2.5">
                                       {block.links.map((link, k) => (
-                                        <Link key={k} href="/shop" className="text-[13px] text-gray-500 hover:text-gray-900 transition-colors">
+                                        <Link key={k} href="/shop" className="text-[13px] text-muted-foreground hover:text-primary transition-colors">
                                           {link}
                                         </Link>
                                       ))}
@@ -259,7 +235,7 @@ export default function Header() {
                     placeholder="Search for Products"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-[#333333] text-sm text-white placeholder-gray-400 border-none rounded-[4px] py-2.5 pl-11 pr-12 focus:outline-none focus:ring-1 focus:ring-gray-400 transition-all"
+                    className="w-full bg-muted text-sm text-white placeholder-gray-400 border-none rounded-[4px] py-2.5 pl-11 pr-12 focus:outline-none focus:ring-1 focus:ring-gray-400 transition-all"
                   />
                   <div className="absolute right-3.5 text-gray-400 cursor-pointer hover:text-white transition-colors">
                     <Mic className="h-[18px] w-[18px]" strokeWidth={2} />
@@ -313,29 +289,29 @@ export default function Header() {
                     ) : (
                       cart.map((item) => (
                         <div key={item.id} className="flex space-x-4 pb-4 border-b border-gray-50 items-start text-black">
-                          <div className="w-16 h-20 bg-gray-50 rounded-lg overflow-hidden flex-shrink-0 relative">
+                          <div className="w-16 h-20 bg-background rounded-lg overflow-hidden flex-shrink-0 relative">
                             <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-semibold text-gray-900 truncate">
+                            <h4 className="text-sm font-semibold text-primary truncate">
                               <Link href={`/product/${item.slug}`}>{item.name}</Link>
                             </h4>
                             {item.selectedAttributes && (
-                              <p className="text-xs text-gray-500 mt-0.5">
+                              <p className="text-xs text-muted-foreground mt-0.5">
                                 {Object.entries(item.selectedAttributes).map(([k, v]) => `${k}: ${v}`).join(' / ')}
                               </p>
                             )}
                             <div className="flex items-center justify-between mt-2.5">
-                              <div className="flex items-center border border-gray-200 rounded-full py-0.5 px-2 bg-gray-50">
-                                <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="p-1 text-gray-500">
+                              <div className="flex items-center border border-gray-200 rounded-full py-0.5 px-2 bg-background">
+                                <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="p-1 text-muted-foreground">
                                   <Minus className="h-3 w-3" />
                                 </button>
                                 <span className="text-xs font-semibold px-2">{item.quantity}</span>
-                                <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="p-1 text-gray-500">
+                                <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="p-1 text-muted-foreground">
                                   <Plus className="h-3 w-3" />
                                 </button>
                               </div>
-                              <span className="text-sm font-bold text-gray-900">${item.price * item.quantity}</span>
+                              <span className="text-sm font-bold text-primary">${item.price * item.quantity}</span>
                             </div>
                           </div>
                           <button onClick={() => removeFromCart(item.id)} className="p-1 text-gray-400 hover:text-red-500">
@@ -350,8 +326,8 @@ export default function Header() {
                   {cart.length > 0 && (
                     <div className="pt-4 border-t border-gray-100 space-y-4 text-black">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm font-semibold text-gray-500">Subtotal</span>
-                        <span className="text-lg font-bold text-gray-900">${cartTotal}</span>
+                        <span className="text-sm font-semibold text-muted-foreground">Subtotal</span>
+                        <span className="text-lg font-bold text-primary">${cartTotal}</span>
                       </div>
                       <div className="grid grid-cols-2 gap-3">
                         <SheetClose render={<Link href="/cart" />}>
@@ -360,7 +336,7 @@ export default function Header() {
                           </Button>
                         </SheetClose>
                         <SheetClose render={<Link href="/checkout" />}>
-                          <Button asChild className="rounded-full bg-black text-white py-5 hover:bg-gray-800">
+                          <Button asChild className="rounded-full bg-black text-white py-5 hover:bg-primary">
                             <span>Checkout</span>
                           </Button>
                         </SheetClose>
@@ -381,9 +357,9 @@ export default function Header() {
                   </SheetHeader>
                   <div className="flex-1 overflow-y-auto py-6">
                     <nav className="space-y-4 flex flex-col">
-                      <Link href="/shop" className="text-sm font-semibold text-gray-900">Shop All</Link>
+                      <Link href="/shop" className="text-sm font-semibold text-primary">Shop All</Link>
                       {menuData?.categories?.map((item: any) => (
-                        <Link key={item.name} href={item.href} className="text-sm text-gray-600">{item.name}</Link>
+                        <Link key={item.name} href={item.href} className="text-sm text-muted-foreground">{item.name}</Link>
                       ))}
                     </nav>
                   </div>

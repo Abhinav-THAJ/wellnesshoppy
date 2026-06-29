@@ -89,7 +89,7 @@ function DashboardContent() {
   if (!mounted || !user) {
     return (
       <div className="pt-32 pb-20 max-w-7xl mx-auto px-4 animate-pulse">
-        <div className="h-64 bg-gray-100 rounded-3xl" />
+        <div className="h-64 bg-muted rounded-3xl" />
       </div>
     );
   }
@@ -123,8 +123,8 @@ function DashboardContent() {
         {/* Title */}
         <div className="mb-10 flex justify-between items-end">
           <div>
-            <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Atelier Dashboard</h1>
-            <p className="font-body text-xs text-gray-500 font-light mt-1">Manage credentials, review purchases, and catalog wishlists.</p>
+            <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight">Atelier Dashboard</h1>
+            <p className="font-body text-xs text-muted-foreground font-light mt-1">Manage credentials, review purchases, and catalog wishlists.</p>
           </div>
           <button 
             onClick={handleLogout}
@@ -138,7 +138,7 @@ function DashboardContent() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 items-start">
           
           {/* Sidebar Menu */}
-          <aside className="border border-gray-100 rounded-3xl p-5 bg-gray-50/50 space-y-1">
+          <aside className="border border-gray-100 rounded-3xl p-5 bg-background/50 space-y-1">
             <h4 className="font-heading text-[10px] font-bold uppercase tracking-widest text-gray-400 px-4 pb-3">Menu Options</h4>
             {[
               { id: 'overview', label: 'Overview', icon: User },
@@ -154,8 +154,8 @@ function DashboardContent() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-full flex items-center space-x-3.5 px-4 py-3 rounded-full text-xs font-body uppercase tracking-wider font-semibold transition-colors ${
                     activeTab === tab.id
-                      ? 'bg-[#111827] text-white shadow-sm'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                      ? 'bg-primary text-white shadow-sm'
+                      : 'text-muted-foreground hover:text-primary hover:bg-muted'
                   }`}
                 >
                   <Icon className="h-4 w-4 flex-shrink-0" />
@@ -172,18 +172,18 @@ function DashboardContent() {
             {activeTab === 'overview' && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-heading text-lg sm:text-xl font-extrabold text-gray-900 leading-tight">Welcome, {user.displayName}</h3>
-                  <p className="font-body text-xs text-gray-400 font-light mt-1">Email: <span className="font-semibold text-gray-600">{user.email}</span></p>
+                  <h3 className="font-heading text-lg sm:text-xl font-extrabold text-primary leading-tight">Welcome, {user.displayName}</h3>
+                  <p className="font-body text-xs text-gray-400 font-light mt-1">Email: <span className="font-semibold text-muted-foreground">{user.email}</span></p>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="p-5 border border-gray-100 rounded-2xl flex flex-col justify-between h-28 shadow-sm">
                     <span className="font-heading text-[10px] font-bold text-gray-400 uppercase tracking-widest">Active Wishlist</span>
-                    <span className="font-body text-2xl font-extrabold text-gray-900">{wishlist.length} items</span>
+                    <span className="font-body text-2xl font-extrabold text-primary">{wishlist.length} items</span>
                   </div>
                   <div className="p-5 border border-gray-100 rounded-2xl flex flex-col justify-between h-28 shadow-sm">
                     <span className="font-heading text-[10px] font-bold text-gray-400 uppercase tracking-widest">Completed orders</span>
-                    <span className="font-body text-2xl font-extrabold text-gray-900">{mockOrders.length} orders</span>
+                    <span className="font-body text-2xl font-extrabold text-primary">{mockOrders.length} orders</span>
                   </div>
                   <div className="p-5 border border-gray-100 rounded-2xl flex flex-col justify-between h-28 shadow-sm">
                     <span className="font-heading text-[10px] font-bold text-gray-400 uppercase tracking-widest">Session Authority</span>
@@ -193,12 +193,12 @@ function DashboardContent() {
 
                 <div className="pt-4 space-y-4">
                   <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-gray-400 border-b border-gray-100 pb-2">Recent Order Trace</h4>
-                  <div className="flex justify-between items-center bg-gray-50/50 p-4 border border-gray-50 rounded-2xl text-xs font-body">
+                  <div className="flex justify-between items-center bg-background/50 p-4 border border-gray-50 rounded-2xl text-xs font-body">
                     <div>
-                      <p className="font-bold text-gray-900">Order #{mockOrders[0].id}</p>
+                      <p className="font-bold text-primary">Order #{mockOrders[0].id}</p>
                       <p className="text-[10px] text-gray-400 mt-0.5">{mockOrders[0].items[0].name}</p>
                     </div>
-                    <span className="bg-[#2563EB]/10 text-[#2563EB] text-[10px] font-bold px-3 py-1 rounded-full uppercase">
+                    <span className="bg-secondary/10 text-secondary text-[10px] font-bold px-3 py-1 rounded-full uppercase">
                       {mockOrders[0].status}
                     </span>
                   </div>
@@ -209,7 +209,7 @@ function DashboardContent() {
             {/* 2. Order History */}
             {activeTab === 'orders' && (
               <div className="space-y-6">
-                <h3 className="font-heading text-lg font-bold text-gray-900 mb-4">Your Orders</h3>
+                <h3 className="font-heading text-lg font-bold text-primary mb-4">Your Orders</h3>
                 
                 {mockOrders.length === 0 ? (
                   <p className="font-body text-xs text-gray-400">You have not placed any orders yet.</p>
@@ -219,20 +219,20 @@ function DashboardContent() {
                       <div key={ord.id} className="border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
                         
                         {/* Header info */}
-                        <div className="bg-gray-50/70 p-4 border-b border-gray-100 flex flex-wrap justify-between gap-4 text-xs font-body">
+                        <div className="bg-background/70 p-4 border-b border-gray-100 flex flex-wrap justify-between gap-4 text-xs font-body">
                           <div className="flex gap-6">
                             <div>
                               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Order Placed</span>
-                              <span className="font-bold text-gray-900 mt-0.5 block">{ord.date}</span>
+                              <span className="font-bold text-primary mt-0.5 block">{ord.date}</span>
                             </div>
                             <div>
                               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Grand Total</span>
-                              <span className="font-bold text-gray-900 mt-0.5 block">${ord.total}</span>
+                              <span className="font-bold text-primary mt-0.5 block">${ord.total}</span>
                             </div>
                           </div>
                           <div>
                             <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Order ID</span>
-                            <span className="font-bold text-[#2563EB] mt-0.5 block">#{ord.id}</span>
+                            <span className="font-bold text-secondary mt-0.5 block">#{ord.id}</span>
                           </div>
                         </div>
 
@@ -240,7 +240,7 @@ function DashboardContent() {
                         <div className="p-5 flex justify-between items-center text-xs font-body">
                           <div>
                             {ord.items.map((item, idx) => (
-                              <p key={idx} className="font-semibold text-gray-900">
+                              <p key={idx} className="font-semibold text-primary">
                                 {item.name} <span className="text-gray-400 font-normal">x{item.qty}</span>
                               </p>
                             ))}
@@ -249,7 +249,7 @@ function DashboardContent() {
                           <span className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase ${
                             ord.status === 'Delivered' 
                               ? 'bg-[#10B981]/10 text-[#10B981]' 
-                              : 'bg-[#2563EB]/10 text-[#2563EB]'
+                              : 'bg-secondary/10 text-secondary'
                           }`}>
                             {ord.status}
                           </span>
@@ -265,7 +265,7 @@ function DashboardContent() {
             {/* 3. Saved Addresses */}
             {activeTab === 'addresses' && (
               <div className="space-y-6">
-                <h3 className="font-heading text-lg font-bold text-gray-900">Delivery Addresses</h3>
+                <h3 className="font-heading text-lg font-bold text-primary">Delivery Addresses</h3>
                 <form onSubmit={handleSaveAddress} className="space-y-4 max-w-lg text-xs font-body">
                   <div className="space-y-1">
                     <label className="font-heading text-[10px] font-bold uppercase tracking-widest text-gray-400">Street Address</label>
@@ -318,7 +318,7 @@ function DashboardContent() {
                   </div>
                   <Button 
                     type="submit" 
-                    className="rounded-full bg-[#111827] text-white font-body text-xs uppercase tracking-wider px-6"
+                    className="rounded-full bg-primary text-white font-body text-xs uppercase tracking-wider px-6"
                   >
                     {saveStatus ? <span className="flex items-center"><Check className="h-4 w-4 mr-2" /> Saved</span> : 'Save Address'}
                   </Button>
@@ -329,11 +329,11 @@ function DashboardContent() {
             {/* 4. Active Wishlist */}
             {activeTab === 'wishlist' && (
               <div className="space-y-6">
-                <h3 className="font-heading text-lg font-bold text-gray-900 mb-4">Your Wishlist ({wishlist.length})</h3>
+                <h3 className="font-heading text-lg font-bold text-primary mb-4">Your Wishlist ({wishlist.length})</h3>
                 {wishlist.length === 0 ? (
                   <div className="text-center py-10">
                     <p className="font-body text-xs text-gray-400">Your wishlist is currently empty.</p>
-                    <Button asChild className="rounded-full bg-[#111827] text-white hover:bg-gray-800 font-body text-xs uppercase tracking-wider px-6 mt-4">
+                    <Button asChild className="rounded-full bg-primary text-white hover:bg-primary font-body text-xs uppercase tracking-wider px-6 mt-4">
                       <Link href="/shop">Browse Collections</Link>
                     </Button>
                   </div>
@@ -350,7 +350,7 @@ function DashboardContent() {
             {/* 5. Settings */}
             {activeTab === 'settings' && (
               <div className="space-y-6">
-                <h3 className="font-heading text-lg font-bold text-gray-900">Profile Credentials</h3>
+                <h3 className="font-heading text-lg font-bold text-primary">Profile Credentials</h3>
                 <form onSubmit={handleSaveProfile} className="space-y-4 max-w-lg text-xs font-body">
                   <div className="space-y-1">
                     <label className="font-heading text-[10px] font-bold uppercase tracking-widest text-gray-400">Display Name</label>
@@ -384,7 +384,7 @@ function DashboardContent() {
                   </div>
                   <Button 
                     type="submit" 
-                    className="rounded-full bg-[#111827] text-white font-body text-xs uppercase tracking-wider px-6"
+                    className="rounded-full bg-primary text-white font-body text-xs uppercase tracking-wider px-6"
                   >
                     {profileSaveStatus ? <span className="flex items-center"><Check className="h-4 w-4 mr-2" /> Updated</span> : 'Update Profile'}
                   </Button>
@@ -403,7 +403,7 @@ function DashboardContent() {
 
 export default function DashboardPage() {
   return (
-    <React.Suspense fallback={<div className="pt-32 pb-20 max-w-7xl mx-auto px-4 animate-pulse"><div className="h-64 bg-gray-100 rounded-3xl" /></div>}>
+    <React.Suspense fallback={<div className="pt-32 pb-20 max-w-7xl mx-auto px-4 animate-pulse"><div className="h-64 bg-muted rounded-3xl" /></div>}>
       <DashboardContent />
     </React.Suspense>
   );

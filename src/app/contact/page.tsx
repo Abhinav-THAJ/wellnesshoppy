@@ -34,9 +34,9 @@ export default function ContactPage() {
         
         {/* Banner */}
         <div className="mb-20 text-center max-w-xl mx-auto">
-          <span className="font-heading text-xs font-bold tracking-[0.2em] text-[#2563EB] uppercase">Connect</span>
-          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-gray-900 mt-2 tracking-tight">Atelier Concierge</h1>
-          <p className="font-body text-xs sm:text-sm text-gray-500 font-light mt-3">
+          <span className="font-heading text-xs font-bold tracking-[0.2em] text-secondary uppercase">Connect</span>
+          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-primary mt-2 tracking-tight">Atelier Concierge</h1>
+          <p className="font-body text-xs sm:text-sm text-muted-foreground font-light mt-3">
             Reach out to our global support desk. A representative will be assigned to your query shortly.
           </p>
         </div>
@@ -46,47 +46,47 @@ export default function ContactPage() {
           
           {/* Info Details */}
           <div className="space-y-8">
-            <h2 className="font-heading text-2xl font-extrabold text-gray-900 tracking-tight">Atelier Channels</h2>
-            <p className="font-body text-xs sm:text-sm text-gray-500 font-light leading-relaxed max-w-sm">
+            <h2 className="font-heading text-2xl font-extrabold text-primary tracking-tight">Atelier Channels</h2>
+            <p className="font-body text-xs sm:text-sm text-muted-foreground font-light leading-relaxed max-w-sm">
               We provide dedicated global account managers. You can reach out directly via secure text or dispatch channels.
             </p>
 
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-[#111827] text-white rounded-xl">
+                <div className="p-3 bg-primary text-white rounded-xl">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
                   <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-gray-400">Secure Dispatch</h4>
-                  <p className="font-body text-sm font-semibold text-gray-900 mt-1">concierge@empire.com</p>
+                  <p className="font-body text-sm font-semibold text-primary mt-1">concierge@empire.com</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-[#111827] text-white rounded-xl">
+                <div className="p-3 bg-primary text-white rounded-xl">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
                   <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-gray-400">Direct Line</h4>
-                  <p className="font-body text-sm font-semibold text-gray-900 mt-1">+1 (800) 555-EMPIRE</p>
+                  <p className="font-body text-sm font-semibold text-primary mt-1">+1 (800) 555-EMPIRE</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-[#111827] text-white rounded-xl">
+                <div className="p-3 bg-primary text-white rounded-xl">
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
                   <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-gray-400">Showroom Address</h4>
-                  <p className="font-body text-sm font-semibold text-gray-900 mt-1">72 Wall Street, Penthouse B, New York, NY 10005</p>
+                  <p className="font-body text-sm font-semibold text-primary mt-1">72 Wall Street, Penthouse B, New York, NY 10005</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Form */}
-          <div className="bg-gray-50/50 border border-gray-100 rounded-3xl p-6 sm:p-8">
-            <h3 className="font-heading text-sm font-bold text-gray-900 mb-6">Send Message</h3>
+          <div className="bg-background/50 border border-gray-100 rounded-3xl p-6 sm:p-8">
+            <h3 className="font-heading text-sm font-bold text-primary mb-6">Send Message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-4 text-xs font-body">
               <div className="grid grid-cols-2 gap-4">
@@ -145,7 +145,7 @@ export default function ContactPage() {
               <Button 
                 type="submit" 
                 disabled={status === 'loading'}
-                className="rounded-full bg-[#111827] text-white hover:bg-gray-800 font-body text-xs uppercase tracking-wider px-8"
+                className="rounded-full bg-primary text-white hover:bg-primary font-body text-xs uppercase tracking-wider px-8"
               >
                 {status === 'loading' ? (
                   'Sending Message...'

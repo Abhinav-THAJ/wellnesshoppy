@@ -34,19 +34,19 @@ export default function TrendingProducts() {
         {/* Header */}
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
-              Trending Designs
+            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary tracking-tight mb-2">
+              Trending Products
             </h2>
-            <p className="font-body text-xs sm:text-sm text-gray-500 font-light max-w-sm">
-              Discover what the design community is picking right now. High-demand curated pieces.
+            <p className="font-body text-xs sm:text-sm text-muted-foreground font-light max-w-sm">
+              Discover our most popular herbal and traditional products right now.
             </p>
           </div>
           {/* Navigation Buttons */}
           <div className="flex space-x-2">
-            <button className="swiper-button-prev-trending p-3 border border-gray-100 hover:border-gray-900 rounded-full hover:bg-gray-50 transition-colors">
+            <button className="swiper-button-prev-trending p-3 border border-gray-100 hover:border-gray-900 rounded-full hover:bg-background transition-colors">
               <ChevronLeft className="h-4 w-4" />
             </button>
-            <button className="swiper-button-next-trending p-3 border border-gray-100 hover:border-gray-900 rounded-full hover:bg-gray-50 transition-colors">
+            <button className="swiper-button-next-trending p-3 border border-gray-100 hover:border-gray-900 rounded-full hover:bg-background transition-colors">
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
@@ -77,7 +77,7 @@ export default function TrendingProducts() {
         </Swiper>
 
         {/* Custom Pagination container */}
-        <div className="swiper-pagination-trending !bottom-0 flex justify-center scale-90 [&_.swiper-pagination-bullet-active]:!bg-gray-900 [&_.swiper-pagination-bullet]:!bg-gray-300" />
+        <div className="swiper-pagination-trending !bottom-0 flex justify-center scale-90 [&_.swiper-pagination-bullet-active]:!bg-primary [&_.swiper-pagination-bullet]:!bg-gray-300" />
 
       </div>
     </section>

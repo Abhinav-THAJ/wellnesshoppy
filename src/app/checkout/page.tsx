@@ -42,7 +42,7 @@ export default function CheckoutPage() {
   if (!mounted) {
     return (
       <div className="pt-32 pb-20 max-w-7xl mx-auto px-4 animate-pulse">
-        <div className="h-64 bg-gray-100 rounded-3xl" />
+        <div className="h-64 bg-muted rounded-3xl" />
       </div>
     );
   }
@@ -124,15 +124,15 @@ export default function CheckoutPage() {
         <div className="w-16 h-16 bg-[#10B981]/10 rounded-full flex items-center justify-center text-[#10B981] mx-auto mb-6">
           <Check className="h-8 w-8" />
         </div>
-        <h1 className="font-heading text-3xl font-extrabold text-gray-900 tracking-tight">Order Confirmed</h1>
-        <p className="font-body text-xs text-gray-500 font-light mt-2">
-          Thank you for your commission. Your order <span className="font-bold text-gray-900">#{orderNumber}</span> has been logged.
+        <h1 className="font-heading text-3xl font-extrabold text-primary tracking-tight">Order Confirmed</h1>
+        <p className="font-body text-xs text-muted-foreground font-light mt-2">
+          Thank you for your commission. Your order <span className="font-bold text-primary">#{orderNumber}</span> has been logged.
         </p>
-        <p className="font-body text-xs text-gray-500 font-light mt-1">
+        <p className="font-body text-xs text-muted-foreground font-light mt-1">
           A receipt containing tracking coordinates has been dispatched to {billing.email}.
         </p>
         <div className="mt-8 space-y-3">
-          <Button asChild className="w-full rounded-full py-5 font-body text-xs uppercase tracking-wider bg-[#111827] text-white">
+          <Button asChild className="w-full rounded-full py-5 font-body text-xs uppercase tracking-wider bg-primary text-white">
             <Link href="/dashboard?tab=orders">Track Orders</Link>
           </Button>
           <Button asChild variant="outline" className="w-full rounded-full py-5 font-body text-xs uppercase tracking-wider border-gray-200">
@@ -149,16 +149,16 @@ export default function CheckoutPage() {
         
         {/* Navigation */}
         <div className="mb-8">
-          <Link href="/cart" className="inline-flex items-center text-xs font-body uppercase font-bold tracking-wider text-gray-400 hover:text-gray-900 transition-colors">
+          <Link href="/cart" className="inline-flex items-center text-xs font-body uppercase font-bold tracking-wider text-gray-400 hover:text-primary transition-colors">
             <ArrowLeft className="h-4 w-4 mr-2" /> Back to Cart
           </Link>
-          <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 mt-4 tracking-tight">Tailored Checkout</h1>
+          <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-primary mt-4 tracking-tight">Tailored Checkout</h1>
         </div>
 
         {cart.length === 0 ? (
-          <div className="text-center py-20 bg-gray-50/50 rounded-3xl p-8 border border-gray-50 max-w-sm mx-auto">
+          <div className="text-center py-20 bg-background/50 rounded-3xl p-8 border border-gray-50 max-w-sm mx-auto">
             <h3 className="font-heading text-base font-bold">Your cart is empty</h3>
-            <Button asChild className="mt-6 rounded-full bg-[#111827]">
+            <Button asChild className="mt-6 rounded-full bg-primary">
               <Link href="/shop">Go to Shop</Link>
             </Button>
           </div>
@@ -262,13 +262,13 @@ export default function CheckoutPage() {
                     onChange={(e) => setIsShippingSame(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 focus:ring-0 cursor-pointer"
                   />
-                  <label htmlFor="sameShipping" className="font-body text-xs text-gray-600 font-medium cursor-pointer select-none">
+                  <label htmlFor="sameShipping" className="font-body text-xs text-muted-foreground font-medium cursor-pointer select-none">
                     Shipping address is the same as billing address
                   </label>
                 </div>
 
                 {!isShippingSame && (
-                  <div className="space-y-4 mt-4 p-5 bg-gray-50/50 rounded-3xl border border-gray-50">
+                  <div className="space-y-4 mt-4 p-5 bg-background/50 rounded-3xl border border-gray-50">
                     <h4 className="font-heading text-xs font-bold uppercase text-gray-400 mb-2">Shipping Information</h4>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-1">
@@ -341,7 +341,7 @@ export default function CheckoutPage() {
                     onClick={() => setPaymentMethod('card')}
                     className={`p-5 rounded-2xl border text-left flex items-start space-x-3 transition-all ${
                       paymentMethod === 'card'
-                        ? 'border-[#2563EB] bg-[#2563EB]/5 text-[#2563EB]'
+                        ? 'border-secondary bg-secondary/5 text-secondary'
                         : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
                     }`}
                   >
@@ -356,7 +356,7 @@ export default function CheckoutPage() {
                     onClick={() => setPaymentMethod('cod')}
                     className={`p-5 rounded-2xl border text-left flex items-start space-x-3 transition-all ${
                       paymentMethod === 'cod'
-                        ? 'border-[#2563EB] bg-[#2563EB]/5 text-[#2563EB]'
+                        ? 'border-secondary bg-secondary/5 text-secondary'
                         : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
                     }`}
                   >
@@ -369,7 +369,7 @@ export default function CheckoutPage() {
                 </div>
 
                 {paymentMethod === 'card' && (
-                  <div className="mt-4 p-5 bg-gray-50/50 rounded-3xl border border-gray-50 space-y-4">
+                  <div className="mt-4 p-5 bg-background/50 rounded-3xl border border-gray-50 space-y-4">
                     <div className="space-y-1">
                       <label className="font-heading text-[10px] font-bold uppercase tracking-widest text-gray-400">Card Number</label>
                       <input 
@@ -412,15 +412,15 @@ export default function CheckoutPage() {
             </div>
 
             {/* Checkout Order Summary Column */}
-            <div className="bg-gray-50 border border-gray-100 rounded-3xl p-6 sm:p-8 space-y-6">
-              <h3 className="font-heading text-lg font-bold text-gray-900">Your Commission</h3>
+            <div className="bg-background border border-gray-100 rounded-3xl p-6 sm:p-8 space-y-6">
+              <h3 className="font-heading text-lg font-bold text-primary">Your Commission</h3>
               
               {/* Items Mini List */}
               <div className="divide-y divide-gray-100 max-h-48 overflow-y-auto pr-1">
                 {cart.map((item) => (
                   <div key={item.id} className="flex justify-between items-center py-3 text-xs font-body">
                     <div className="truncate pr-4 flex-1">
-                      <span className="font-bold text-gray-900">{item.name}</span>
+                      <span className="font-bold text-primary">{item.name}</span>
                       {item.selectedAttributes && (
                         <span className="text-[10px] text-gray-400 block mt-0.5">
                           {Object.entries(item.selectedAttributes).map(([k, v]) => `${k}:${v}`).join(' / ')}
@@ -428,16 +428,16 @@ export default function CheckoutPage() {
                       )}
                       <span className="text-gray-400 block mt-0.5">Qty {item.quantity}</span>
                     </div>
-                    <span className="font-bold text-gray-900 flex-shrink-0">${item.price * item.quantity}</span>
+                    <span className="font-bold text-primary flex-shrink-0">${item.price * item.quantity}</span>
                   </div>
                 ))}
               </div>
 
               {/* Totals Summary */}
-              <div className="space-y-3 font-body text-xs sm:text-sm text-gray-500 border-t border-gray-100 pt-4">
+              <div className="space-y-3 font-body text-xs sm:text-sm text-muted-foreground border-t border-gray-100 pt-4">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span className="font-bold text-gray-900">${subtotal}</span>
+                  <span className="font-bold text-primary">${subtotal}</span>
                 </div>
                 {couponDiscount > 0 && (
                   <div className="flex justify-between text-[#10B981] font-semibold">
@@ -450,10 +450,10 @@ export default function CheckoutPage() {
                   {shippingCost === 0 ? (
                     <span className="text-[#10B981] font-semibold">Complimentary</span>
                   ) : (
-                    <span className="font-bold text-gray-900">${shippingCost}</span>
+                    <span className="font-bold text-primary">${shippingCost}</span>
                   )}
                 </div>
-                <div className="flex justify-between text-base font-heading font-bold text-gray-900 pt-3">
+                <div className="flex justify-between text-base font-heading font-bold text-primary pt-3">
                   <span>Grand Total</span>
                   <span>${total}</span>
                 </div>
@@ -464,7 +464,7 @@ export default function CheckoutPage() {
                 <Button 
                   type="submit" 
                   disabled={checkoutStatus === 'loading'}
-                  className="w-full rounded-full py-6 font-body text-xs uppercase tracking-wider font-bold bg-[#111827] text-white hover:bg-gray-800 h-auto"
+                  className="w-full rounded-full py-6 font-body text-xs uppercase tracking-wider font-bold bg-primary text-white hover:bg-primary h-auto"
                 >
                   {checkoutStatus === 'loading' ? 'Processing Transaction...' : 'Place Order & Pay'}
                 </Button>
